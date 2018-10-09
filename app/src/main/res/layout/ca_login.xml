@@ -12,7 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="240dp"
         android:layout_height="120dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:adjustViewBounds="false"
         android:contentDescription="OCF_Logo"
         android:cropToPadding="false"
@@ -25,12 +25,16 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="243dp"
         android:layout_height="19dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        android:freezesText="false"
+        android:gravity="center"
         android:singleLine="false"
         android:text="CARE ASSOCIATE LOGIN"
+        android:textColor="#000"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -40,7 +44,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
+        android:drawableLeft="@drawable/email_icon"
+        android:drawablePadding="15dp"
         android:ems="10"
+        android:hint="Email Address"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -50,6 +57,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword" />
 
     <TextView
@@ -57,7 +65,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Forgot password?" />
+        android:layout_marginBottom="30dp"
+        android:text="Forgot password?"
+        android:textColor="#A0A4A5" />
 
     <Button
         android:id="@+id/button"
@@ -65,14 +75,21 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:text="Button" />
+        android:background="@drawable/round_corner"
+        android:text="Login"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="40dp"
-        android:text="Button" />
+        android:background="@drawable/border_primary_color"
+        android:text="SIgn up"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="#7400AD" />
 
 </LinearLayout>
