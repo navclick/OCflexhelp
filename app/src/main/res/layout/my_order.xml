@@ -1,254 +1,528 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView6"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical|center_horizontal|center"
-        android:text="My Orders"
-        android:textAllCaps="true"
-        android:textColor="@color/darkGrey"
-        android:textSize="18sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:text="Active Orders"
-            android:textAllCaps="true"
-            android:textColor="@color/darkPurple" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/underline"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            android:weightSum="10">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="7"
-                android:orientation="horizontal">
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView_8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Customized Errands"
-                        android:textColor="@color/midGrey"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView_9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="19/05/2017"
-                        android:textColor="@color/lightGrey" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:gravity="center|end"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button_3"
+                <View
+                    android:id="@+id/active_divider"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/border_primary_color"
-                    android:text="View"
-                    android:textColor="@drawable/btn_txt_primary_color" />
-            </LinearLayout>
+                    android:layout_height="1dp"
+                    android:layout_alignWithParentIfMissing="false"
+                    android:layout_centerHorizontal="false"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="false"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#444C51" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/underline"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="7"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView_80"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Personal Assistant"
-                        android:textColor="@color/midGrey"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView_90"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="06/01/2017"
-                        android:textColor="@color/lightGrey" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:gravity="center|end"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button_30"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/border_primary_color"
-                    android:text="View"
-                    android:textColor="@drawable/btn_txt_primary_color" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView_7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:text="Order History"
-            android:textAllCaps="true"
-            android:textColor="@color/darkPurple" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/underline"
-            android:baselineAligned="false"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="7"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView80"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Light Tidying Up"
-                        android:textColor="@color/midGrey"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView90"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="15/04/2017"
-                        android:textColor="@color/lightGrey" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/active_textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="right|end"
-                    android:orientation="vertical">
+                    android:layout_alignWithParentIfMissing="false"
+                    android:layout_centerHorizontal="false"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="false"
+                    android:background="#fff"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="My Orders"
+                    android:textColor="#444C51"
+                    android:textSize="16sp" />
 
-                    <RatingBar
-                        android:id="@+id/rating_Bar"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:numStars="5"
-                        android:rating="2"
-                        android:stepSize="0.5"
-                        android:theme="@style/RatingBar" />
+            </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="$150"
-                        android:textColor="@color/midGrey" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:text="Active Orders"
+                    android:textAllCaps="true"
+                    android:textColor="@color/darkPurple" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/underline"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="7"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView_8"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Customized Errands"
+                                android:textColor="@color/midGrey"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/textView_9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="19/05/2017"
+                                android:textColor="@color/lightGrey" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center|end"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/border_primary_color"
+                            android:text="View"
+                            android:textColor="@drawable/btn_txt_primary_color" />
+                    </LinearLayout>
+
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/underline"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="7"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView_80"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Personal Assistant"
+                                android:textColor="@color/midGrey"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/textView_90"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="06/01/2017"
+                                android:textColor="@color/lightGrey" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center|end"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button_30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/border_primary_color"
+                            android:text="View"
+                            android:textColor="@drawable/btn_txt_primary_color" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:text="Order History"
+                    android:textAllCaps="true"
+                    android:textColor="@color/darkPurple" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/underline"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="7"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView800"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Light Tidying Up"
+                                android:textColor="@color/midGrey"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/textView900"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="15/04/2017"
+                                android:textColor="@color/lightGrey" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right|end"
+                            android:orientation="vertical">
+
+                            <RatingBar
+                                android:id="@+id/rating_Ba_r"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:isIndicator="true"
+                                
+                                android:layout_gravity="center_horizontal"
+                                android:numStars="5"
+                                style="?android:attr/ratingBarStyle"
+                                android:rating="2"
+                                android:stepSize="0.5"
+                                android:theme="@style/RatingBar" />
+
+                            <TextView
+                                android:id="@+id/textView1_00"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="$150"
+                                android:textColor="@color/midGrey" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/underline"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="7"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView_800"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Light Tidying Up"
+                                android:textColor="@color/midGrey"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/textView_900"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="15/04/2017"
+                                android:textColor="@color/lightGrey" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right|end"
+                            android:orientation="vertical">
+
+                            <RatingBar
+                                android:id="@+id/rating_Bar_"
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:numStars="5"
+                                android:rating="2"
+                                android:stepSize="0.5"
+                                android:theme="@style/RatingBar" />
+
+                            <TextView
+                                android:id="@+id/textView100"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="$150"
+                                android:textColor="@color/midGrey" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/underline"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="7"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView80"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Light Tidying Up"
+                                android:textColor="@color/midGrey"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/textView90"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="15/04/2017"
+                                android:textColor="@color/lightGrey" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right|end"
+                            android:orientation="vertical">
+
+                            <RatingBar
+                                android:id="@+id/rating_Bar"
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:numStars="5"
+                                android:rating="2"
+                                android:stepSize="0.5"
+                                android:theme="@style/RatingBar" />
+
+                            <TextView
+                                android:id="@+id/textView10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="$150"
+                                android:textColor="@color/midGrey" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/underline"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="7"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView_800"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Light Tidying Up"
+                                android:textColor="@color/midGrey"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/textView_900"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="15/04/2017"
+                                android:textColor="@color/lightGrey" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right|end"
+                            android:orientation="vertical">
+
+                            <RatingBar
+                                android:id="@+id/rating_Bar_"
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:numStars="5"
+                                android:rating="2"
+                                android:stepSize="0.5"
+                                android:theme="@style/RatingBar" />
+
+                            <TextView
+                                android:id="@+id/textView100"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="$150"
+                                android:textColor="@color/midGrey" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

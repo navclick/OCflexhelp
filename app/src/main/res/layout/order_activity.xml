@@ -27,13 +27,13 @@
                 <View
                     android:id="@+id/active_divider"
                     android:layout_width="wrap_content"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_alignWithParentIfMissing="false"
-                    android:layout_centerInParent="true"
                     android:layout_centerHorizontal="false"
+                    android:layout_centerInParent="true"
                     android:layout_centerVertical="false"
-                    android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
                     android:background="#444C51" />
 
                 <TextView
@@ -144,13 +144,13 @@
                 <View
                     android:id="@+id/upcoming_divider"
                     android:layout_width="wrap_content"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_alignWithParentIfMissing="false"
-                    android:layout_centerInParent="true"
                     android:layout_centerHorizontal="false"
+                    android:layout_centerInParent="true"
                     android:layout_centerVertical="false"
-                    android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
                     android:background="#444C51" />
 
                 <TextView
