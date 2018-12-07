@@ -355,9 +355,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/round_corner"
-                android:text="Save"
+                android:text="SAVE"
                 android:textAllCaps="false"
-                android:textColor="@drawable/txt_round_corner" />
+                android:textColor="@drawable/txt_round_corner"
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 

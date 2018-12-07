@@ -65,7 +65,8 @@
                     android:layout_marginStart="20dp"
                     android:text="Active Orders"
                     android:textAllCaps="true"
-                    android:textColor="@color/darkPurple" />
+                    android:textColor="@color/darkPurple"
+                    android:textSize="12sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -96,14 +97,15 @@
                                 android:layout_height="wrap_content"
                                 android:text="Customized Errands"
                                 android:textColor="@color/midGrey"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/textView_9"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="19/05/2017"
-                                android:textColor="@color/lightGrey" />
+                                android:textColor="@color/lightGrey"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -156,14 +158,15 @@
                                 android:layout_height="wrap_content"
                                 android:text="Personal Assistant"
                                 android:textColor="@color/midGrey"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/textView_90"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="06/01/2017"
-                                android:textColor="@color/lightGrey" />
+                                android:textColor="@color/lightGrey"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -203,7 +206,8 @@
                     android:layout_marginStart="20dp"
                     android:text="Order History"
                     android:textAllCaps="true"
-                    android:textColor="@color/darkPurple" />
+                    android:textColor="@color/darkPurple"
+                    android:textSize="12sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -235,14 +239,15 @@
                                 android:layout_height="wrap_content"
                                 android:text="Light Tidying Up"
                                 android:textColor="@color/midGrey"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/textView900"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="15/04/2017"
-                                android:textColor="@color/lightGrey" />
+                                android:textColor="@color/lightGrey"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -315,14 +320,15 @@
                                 android:layout_height="wrap_content"
                                 android:text="Light Tidying Up"
                                 android:textColor="@color/midGrey"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/textView_900"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="15/04/2017"
-                                android:textColor="@color/lightGrey" />
+                                android:textColor="@color/lightGrey"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -394,14 +400,15 @@
                                 android:layout_height="wrap_content"
                                 android:text="Light Tidying Up"
                                 android:textColor="@color/midGrey"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/textView90"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="15/04/2017"
-                                android:textColor="@color/lightGrey" />
+                                android:textColor="@color/lightGrey"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -472,14 +479,15 @@
                                 android:layout_height="wrap_content"
                                 android:text="Light Tidying Up"
                                 android:textColor="@color/midGrey"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/textView_900"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="15/04/2017"
-                                android:textColor="@color/lightGrey" />
+                                android:textColor="@color/lightGrey"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                     </LinearLayout>
