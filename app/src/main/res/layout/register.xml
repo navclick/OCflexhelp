@@ -37,7 +37,7 @@
                 app:srcCompat="@drawable/ocf_logo" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/txt_fullname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -53,7 +53,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/txt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -69,7 +69,41 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/txt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:drawableStart="@drawable/lock_icon"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="20dp"
+                android:textColor="#758089"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txt_confirmpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:drawableStart="@drawable/lock_icon"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="20dp"
+                android:textColor="#758089"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txt_phonenumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -86,7 +120,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/txt_addressone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -103,7 +137,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/txt_addresstwo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -133,7 +167,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editText6"
+                android:id="@+id/txt_accounttitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -149,7 +183,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editText7"
+                android:id="@+id/txt_accountname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -165,7 +199,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editText8"
+                android:id="@+id/txt_bankname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -181,7 +215,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editText9"
+                android:id="@+id/txt_swiftcode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -196,7 +230,7 @@
                 android:textSize="14sp" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_register"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -209,7 +243,7 @@
                 android:textColor="@drawable/txt_round_corner" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btn_cancel"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

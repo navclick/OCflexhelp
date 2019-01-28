@@ -47,7 +47,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -62,7 +62,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/txtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -90,7 +90,7 @@
             android:textColor="#A0A4A5" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_signin"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             android:textColor="@drawable/txt_round_corner" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_signup"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
