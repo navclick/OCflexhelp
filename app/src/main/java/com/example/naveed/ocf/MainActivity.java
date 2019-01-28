@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
         setContentView(R.layout.ca_login);
 
         tokenHelper = new TokenHelper(this);
@@ -77,5 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+=======
+        setContentView(R.layout.order_history);
+>>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
     }
 }
