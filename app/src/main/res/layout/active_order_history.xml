@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/underline"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="7"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_800"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Light Tidying Up"
+                    android:textColor="@color/midGrey"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView_900"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="15/04/2017"
+                    android:textColor="@color/lightGrey" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right|end"
+                android:orientation="vertical">
+
+                <RatingBar
+                    android:id="@+id/rating_Bar1"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:numStars="5"
+                    android:rating="2"
+                    android:stepSize="0.5"
+                    android:theme="@style/RatingBar" />
+
+                <TextView
+                    android:id="@+id/textView101"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="$150"
+                    android:textColor="@color/midGrey" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
