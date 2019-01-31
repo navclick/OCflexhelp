@@ -10,73 +10,34 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.naveed.ocf.Base.BaseActivity;
-import com.example.naveed.ocf.Models.OrderDetails;
 import com.example.naveed.ocf.R;
 
-public class OrderHistoryDetailsActivity extends BaseActivity implements  View.OnClickListener, NavigationView.OnNavigationItemSelectedListener  {
+public class PaymentActivity extends BaseActivity implements   NavigationView.OnNavigationItemSelectedListener {
 
-    public TextView txt_order_number,txt_service_date,txt_service_time,txt_service_name,txt_service_hrs,txt_amount;
-    public Button btn_order_history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_history);
+        setContentView(R.layout.payments);
 
-
-        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+// Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         //setSupportActionBar(toolbar);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_ordershis);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_payment);
 
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_ordershis);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_payment);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_orderhiss);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_payment);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        txt_order_number=(TextView) findViewById(R.id.txt_order_number);
-        txt_service_date=(TextView) findViewById(R.id.txt_service_date);
-        txt_service_time=(TextView) findViewById(R.id.txt_service_time);
-        txt_service_name=(TextView) findViewById(R.id.txt_service_name);
-        txt_service_hrs=(TextView) findViewById(R.id.txt_service_hrs);
-        txt_amount=(TextView) findViewById(R.id.txt_amount);
-        btn_order_history=(Button) findViewById(R.id.btn_order_history);
-
-
-
-        txt_order_number.setText(String.valueOf(OrderDetails.OrderNumber));
-        txt_service_date.setText(OrderDetails.ServiceDate);
-        txt_service_time.setText(OrderDetails.ServiceDate);;
-        txt_service_name.setText(OrderDetails.ServiceName);;
-        txt_service_hrs.setText("2");;
-        txt_amount.setText(OrderDetails.Price);;
-
-        btn_order_history.setOnClickListener(this);
-
-
-    }
-
-
-    @Override
-    public void onClick(View view) {
-        switch(view.getId()){
-
-            case R.id.btn_order_history:
-                BaseActivity.startActivity(this,MyOrdersActivity.class);
-                break;
-
-
-        }
     }
 
 
@@ -85,7 +46,7 @@ public class OrderHistoryDetailsActivity extends BaseActivity implements  View.O
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_ordershis);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_payment);
 
 
 
@@ -106,11 +67,11 @@ public class OrderHistoryDetailsActivity extends BaseActivity implements  View.O
 
         else if (id == R.id.menu_payments) {
             mDrawerLayout.closeDrawers();
-            BaseActivity.startActivity(this,PaymentActivity.class);
             // openActivity(ShoppingListActivity.class);
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+            BaseActivity.startActivity(this,PaymentActivity.class);
         }
 
         else if (id == R.id.menu_Schedules) {
@@ -153,6 +114,5 @@ public class OrderHistoryDetailsActivity extends BaseActivity implements  View.O
        */
         return super.onCreateOptionsMenu(menu);
     }
-
 
 }

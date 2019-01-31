@@ -274,6 +274,8 @@ showProgress();
 
         else if (id == R.id.menu_payments) {
             mDrawerLayout.closeDrawers();
+
+            BaseActivity.startActivity(this, PaymentActivity.class);
             // openActivity(ShoppingListActivity.class);
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
