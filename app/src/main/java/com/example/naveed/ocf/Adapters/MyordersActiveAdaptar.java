@@ -42,7 +42,8 @@ public class MyordersActiveAdaptar extends RecyclerView.Adapter<MyordersActiveAd
             txt_service_date = (TextView) view.findViewById(R.id.txt_service_date);
             btn_view = (Button) view.findViewById(R.id.btn_view);
 
-            view.setOnClickListener(this);
+            //view.setOnClickListener(this);
+            btn_view.setOnClickListener(this);
 
         }
 
@@ -52,48 +53,51 @@ public class MyordersActiveAdaptar extends RecyclerView.Adapter<MyordersActiveAd
         public void onClick(View view) {
             Log.d(Constants.TAG,"Click");
 
-            try {
-                OrdersResponse.OdersValue Order = itemList.get(getPosition());
 
-                String newString = Order.getStartDate().replaceAll(",", ":");
+            if(view.getId()==R.id.btn_view  ) {
 
-                newString = newString.replace("/", "");
+                try {
+                    OrdersResponse.OdersValue Order = itemList.get(getPosition());
 
+                    String newString = Order.getStartDate().replaceAll(",", ":");
 
-                //String dateStr = "Wednesday: January 23: 2019  2:15:00 AM";
-
-                DateFormat readFormat = new SimpleDateFormat("EEEE: MMMM dd: yyyy  HH:mm:ss aaa");
-
-                DateFormat writeFormat = new SimpleDateFormat("HH:mm:ss");
-
-                DateFormat writeFormatForDate = new SimpleDateFormat("dd MMM EEE");
-                Date date = null;
-                date = readFormat.parse(newString);
+                    newString = newString.replace("/", "");
 
 
-                String formattedTime = "";
-                String formattedDate = "";
-                if (date != null) {
-                    formattedTime = writeFormat.format(date);
-                    formattedDate = writeFormatForDate.format(date);
+                    //String dateStr = "Wednesday: January 23: 2019  2:15:00 AM";
+
+                    DateFormat readFormat = new SimpleDateFormat("EEEE: MMMM dd: yyyy  HH:mm:ss aaa");
+
+                    DateFormat writeFormat = new SimpleDateFormat("HH:mm:ss");
+
+                    DateFormat writeFormatForDate = new SimpleDateFormat("dd MMM EEE");
+                    Date date = null;
+                    date = readFormat.parse(newString);
+
+
+                    String formattedTime = "";
+                    String formattedDate = "";
+                    if (date != null) {
+                        formattedTime = writeFormat.format(date);
+                        formattedDate = writeFormatForDate.format(date);
+
+                    }
+
+
+                    OrderDetails.CustomerAddress = Order.getAddress();
+                    OrderDetails.CustomerName = Order.getCustomer();
+                    OrderDetails.CustomerPhone = "";
+                    OrderDetails.OrderNumber = Order.getId();
+                    OrderDetails.OrderStatus = Order.getStatusId();
+                    OrderDetails.Price = "$ " + Order.getAmount().toString();
+                    OrderDetails.ServiceDate = formattedDate;
+                    OrderDetails.ServiceTime = formattedTime + " - " + formattedTime;
+                    OrderDetails.ServiceName = Order.getServiceName();
+                    BaseActivity.startActivity(view.getContext(), OrderDetailsActivity.class);
+                } catch (Exception e) {
+
 
                 }
-
-
-                OrderDetails.CustomerAddress = Order.getAddress();
-                OrderDetails.CustomerName = Order.getCustomer();
-                OrderDetails.CustomerPhone = "";
-                OrderDetails.OrderNumber = Order.getId();
-                OrderDetails.OrderStatus = Order.getStatusId();
-                OrderDetails.Price = "$ " + Order.getAmount().toString();
-                OrderDetails.ServiceDate = formattedDate;
-                OrderDetails.ServiceTime = formattedTime + " - " + formattedTime;
-                OrderDetails.ServiceName = Order.getServiceName();
-                BaseActivity.startActivity(view.getContext(), OrderDetailsActivity.class);
-            }
-            catch (Exception e){
-
-
 
             }
 

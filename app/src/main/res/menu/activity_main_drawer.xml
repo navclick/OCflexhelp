@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single" android:id="@+id/a-1">
+        <item android:id="@+id/menu_myorders" android:icon="@mipmap/my_orders"
+            android:title="My Orders" />
+        <item android:id="@+id/menu_profile" android:icon="@mipmap/edit_profile"
+            android:title="Edit Profile" />
+        <item android:id="@+id/menu_payments" android:icon="@mipmap/settings"
+            android:title="Payments" />
+        <item android:id="@+id/menu_Schedules" android:icon="@mipmap/services"
+            android:title="Schedules" />
+        <item android:id="@+id/menu_logout" android:icon="@mipmap/logout"
+            android:title="Logout" />
+    </group>
+</menu>

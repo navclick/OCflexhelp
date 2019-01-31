@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.naveed.ocf.Activities.MyOrdersActivity;
 import com.example.naveed.ocf.Activities.OrderDetailsActivity;
+import com.example.naveed.ocf.Activities.OrderHistoryDetailsActivity;
 import com.example.naveed.ocf.Base.BaseActivity;
 import com.example.naveed.ocf.Helper.Constants;
 import com.example.naveed.ocf.Models.OrderDetails;
@@ -54,6 +56,8 @@ public class MyordersHistoryAdaptar extends RecyclerView.Adapter<MyordersHistory
         public void onClick(View view) {
             Log.d(Constants.TAG,"Click");
 
+
+
             try {
                 OrdersResponse.OdersValue Order = itemList.get(getPosition());
 
@@ -91,13 +95,16 @@ public class MyordersHistoryAdaptar extends RecyclerView.Adapter<MyordersHistory
                 OrderDetails.ServiceDate = formattedDate;
                 OrderDetails.ServiceTime = formattedTime + " - " + formattedTime;
                 OrderDetails.ServiceName = Order.getServiceName();
-                BaseActivity.startActivity(view.getContext(), OrderDetailsActivity.class);
+                BaseActivity.startActivity(view.getContext(), OrderHistoryDetailsActivity.class);
             }
             catch (Exception e){
 
 
 
             }
+
+
+
 
             // Log.d("APITEST:", "onClick " + getPosition() + " " + mItem);
 /*

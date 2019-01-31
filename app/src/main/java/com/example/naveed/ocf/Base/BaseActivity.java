@@ -176,4 +176,13 @@ public class BaseActivity extends AppCompatActivity{
 
 
     }
+
+    public void logOut(){
+
+        tokenHelper.removeALL();
+        // openActivity(Login.class);
+        startActivity(this,Login.class);
+    }
+
+
 }

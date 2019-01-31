@@ -74,6 +74,7 @@ public class Login extends BaseActivity implements View.OnClickListener{
     private void SignIn(){
         try {
 
+            showProgress();
             IApiCaller token = ApiClient.createService(IApiCaller.class);
             String username = txtEmail.getText().toString();
             String password = txtPassword.getText().toString();
@@ -94,13 +95,15 @@ public class Login extends BaseActivity implements View.OnClickListener{
                         } catch (Exception e) {
                             Log.d("Exception", e.getMessage());
                             Toast.makeText(Login.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+
+                       hideProgress();
                         }
                     }else{
                         String access_token = objToken.getAccessToken();
                         boolean isTokenSet = tokenHelper.SetToken(objToken.getAccessToken());
                         if(isTokenSet == true){
                             // TODO: Open main screen if token is set successfully
-
+                            hideProgress();
                             Log.d(Constants.TAG,objToken.getAccessToken());
                             OpenActivity(OrderActivity.class);
                         }
@@ -110,6 +113,7 @@ public class Login extends BaseActivity implements View.OnClickListener{
                 public void onFailure(Call<Token> call, Throwable t) {
                     Toast.makeText(Login.this, "Something went wrong", Toast.LENGTH_SHORT).show();
 //                Log.d("ApiError",t.getMessage());
+                    hideProgress();
                 }
             });
 

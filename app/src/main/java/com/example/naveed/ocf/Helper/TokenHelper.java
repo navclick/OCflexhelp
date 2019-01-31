@@ -27,4 +27,13 @@ public class TokenHelper {
         String restoredText = sharedPreferences.getString("token", null);
         return restoredText;
     }
+
+    public boolean removeALL() {
+        android.content.SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+
+        prefsEditor.clear();
+        return prefsEditor.commit();
+    }
+
+
 }
