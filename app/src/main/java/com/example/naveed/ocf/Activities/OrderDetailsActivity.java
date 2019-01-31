@@ -80,11 +80,24 @@ public Button btn_active,btn_complete,btn_cancel;
         LatLng custLocation = getLocationFromAddress(this,OrderDetails.CustomerAddress);
 
         Log.d(Constants.TAG,"cusLoc"+ String.valueOf(custLocation.latitude));
+      //  mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
+        float zoomLevel = (float) 15.0;
+
+        MarkerOptions markerOptions = new MarkerOptions();
+
+        // Setting the position for the marker
+        markerOptions.position(custLocation);
+
+        // Setting the title for the marker.
+        // This will be displayed on taping the marker
+        markerOptions.title(OrderDetails.CustomerName);
+
+        // Clears the previously touched position
 
 
-        LatLng sydney = new LatLng(41.819950, -74.314740);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        mMap.addMarker(markerOptions).showInfoWindow();
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(custLocation,zoomLevel));
 
     }
 
