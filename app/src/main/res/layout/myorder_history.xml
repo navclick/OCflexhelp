@@ -29,7 +29,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView_800"
+                    android:id="@+id/txt_service_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Light Tidying Up"
@@ -37,7 +37,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_900"
+                    android:id="@+id/txt_service_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="15/04/2017"
@@ -60,7 +60,7 @@
                 android:orientation="vertical">
 
                 <RatingBar
-                    android:id="@+id/rating_Bar1"
+                    android:id="@+id/rating_barhis"
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                     android:theme="@style/RatingBar" />
 
                 <TextView
-                    android:id="@+id/textView101"
+                    android:id="@+id/txt_amount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"

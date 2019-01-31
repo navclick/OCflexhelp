@@ -24,7 +24,7 @@
             android:value="AIzaSyCqITNqgnieoz27O3JQcRUblt6zC6nmfzg" />
 
         <activity
-            android:name=".Activities.SplashActivity"
+            android:name=".Activities.MyOrdersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -36,6 +36,8 @@
         <activity android:name=".Activities.SignUpActivity" />
         <activity android:name=".Activities.OrderActivity"/>
         <activity android:name=".Activities.OrderDetailsActivity"/>
+
+        <activity android:name=".Activities.SplashActivity"/>
 
         <activity android:name=".Activities.CalcelActivity"
             android:screenOrientation="portrait"
