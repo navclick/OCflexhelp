@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -79,7 +80,9 @@ public class OrderActivity extends BaseActivity implements  NavigationView.OnNav
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_order);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        View header = navigationView.getHeaderView(0);
+        TextView t = (TextView) header.findViewById(R.id.txt_main_name);
+        t.setText("ASAD");
 
         recyclerViewActiveOrder = (RecyclerView) findViewById(R.id.recycler_view_ActiveOrders);
 
