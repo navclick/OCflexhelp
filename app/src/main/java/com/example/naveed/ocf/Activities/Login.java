@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.naveed.ocf.Helper.Constants;
 import com.example.naveed.ocf.Helper.GeneralHelper;
 import com.example.naveed.ocf.Models.Token;
 import com.example.naveed.ocf.Network.ApiClient;
@@ -99,6 +100,8 @@ public class Login extends BaseActivity implements View.OnClickListener{
                         boolean isTokenSet = tokenHelper.SetToken(objToken.getAccessToken());
                         if(isTokenSet == true){
                             // TODO: Open main screen if token is set successfully
+
+                            Log.d(Constants.TAG,objToken.getAccessToken());
                             OpenActivity(OrderActivity.class);
                         }
                     }

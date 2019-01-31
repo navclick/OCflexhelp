@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
         setContentView(R.layout.ca_login);
 
         tokenHelper = new TokenHelper(this);
@@ -38,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 IApiCaller token = ApiClient.createService(IApiCaller.class);
+               // IApiCaller token = ApiClient.createService(IApiCaller.class);
                 Call<Token> response = token.GetToken("admin","Admin123","password");
 
                 response.enqueue(new Callback<Token>() {
@@ -78,8 +79,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-=======
-        setContentView(R.layout.order_history);
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
     }
 }

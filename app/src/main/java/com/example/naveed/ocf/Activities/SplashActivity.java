@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.naveed.ocf.Base.BaseActivity;
+import com.example.naveed.ocf.Helper.Constants;
 import com.example.naveed.ocf.Helper.TokenHelper;
 import com.example.naveed.ocf.MainActivity;
 import com.example.naveed.ocf.R;
@@ -20,6 +21,7 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         OpenSplashActivity();
+        Constants.init();
     }
 
     private void OpenSplashActivity() {
@@ -28,7 +30,19 @@ public class SplashActivity extends BaseActivity {
 
             @Override
             public void run() {
-                Intent i = new Intent(SplashActivity.this, Login.class);
+                Intent i;
+
+                if(tokenHelper.GetToken()==null || tokenHelper.GetToken()=="") {
+                    i = new Intent(SplashActivity.this, Login.class);
+                }
+                else{
+                    i = new Intent(SplashActivity.this, OrderActivity.class);
+
+                }
+
+                //i = new Intent(SplashScreen.this, LanuageSelection.class);
+
+
                 startActivity(i);
                 finish();
             }

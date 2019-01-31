@@ -92,7 +92,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
             request.Password = txtPassword.getText().toString();
             request.ConfirmPassword = txtConfirmPassword.getText().toString();
             request.FullName = txtFullName.getText().toString();
-            request.Level = 5;
+            request.Level = 4;
             request.PhoneNumber = txtPhoneNumber.getText().toString();
             request.AddressOne = txtAddressOne.getText().toString();
             request.AddressTwo = txtAddressTwo.getText().toString();
@@ -102,6 +102,8 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
             request.Swift = txtSwift.getText().toString();
 
             Call<GeneralResponse> response = client.Register(request);
+
+
 
             response.enqueue(new Callback<GeneralResponse>() {
                 @Override

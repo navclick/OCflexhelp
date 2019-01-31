@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
-=======
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -309,11 +304,9 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:drawablePadding="20dp"
-                    android:drawableStart="@drawable/lock_icon"
                     android:ems="10"
                     android:hint="Enter Current Password"
                     android:inputType="text"
-                    android:paddingStart="20dp"
                     android:textColor="#758089"
                     android:textSize="16sp" />
 
@@ -325,11 +318,9 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:drawablePadding="20dp"
-                    android:drawableStart="@drawable/lock_icon"
                     android:ems="10"
                     android:hint="New Password"
                     android:inputType="number"
-                    android:paddingStart="20dp"
                     android:textColor="#758089"
                     android:textSize="16sp" />
 
@@ -341,11 +332,9 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:drawablePadding="20dp"
-                    android:drawableStart="@drawable/lock_icon"
                     android:ems="10"
                     android:hint="Repeate Password"
                     android:inputType="text"
-                    android:paddingStart="20dp"
                     android:textColor="#758089"
                     android:textSize="16sp" />
 
@@ -366,6 +355,6 @@
                 android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
+
 
 </LinearLayout>

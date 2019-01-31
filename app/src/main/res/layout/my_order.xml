@@ -65,12 +65,8 @@
                     android:layout_marginStart="20dp"
                     android:text="Active Orders"
                     android:textAllCaps="true"
-<<<<<<< HEAD
-                    android:textColor="@color/darkPurple" />
-=======
-                    android:textColor="@color/darkPurple"
-                    android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
+                    />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -100,24 +96,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Customized Errands"
-                                android:textColor="@color/midGrey"
-<<<<<<< HEAD
-                                android:textSize="16sp" />
-=======
-                                android:textSize="14sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
-
-                            <TextView
+                                android:textColor="@color/midGrey"/>
+                             <TextView
                                 android:id="@+id/textView_9"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="19/05/2017"
-<<<<<<< HEAD
                                 android:textColor="@color/lightGrey" />
-=======
-                                android:textColor="@color/lightGrey"
-                                android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
                         </LinearLayout>
 
                     </LinearLayout>
@@ -132,20 +117,12 @@
                         <Button
                             android:id="@+id/button_3"
                             android:layout_width="wrap_content"
-<<<<<<< HEAD
                             android:layout_height="40dp"
                             android:layout_weight="1"
                             android:background="@drawable/border_primary_color"
                             android:text="View"
                             android:textColor="@drawable/btn_txt_primary_color" />
-=======
-                            android:layout_height="25dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/border_primary_color"
-                            android:text="View"
-                            android:textColor="@drawable/btn_txt_primary_color"
-                            android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -178,23 +155,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Personal Assistant"
                                 android:textColor="@color/midGrey"
-<<<<<<< HEAD
                                 android:textSize="16sp" />
-=======
-                                android:textSize="14sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
-
                             <TextView
                                 android:id="@+id/textView_90"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="06/01/2017"
-<<<<<<< HEAD
                                 android:textColor="@color/lightGrey" />
-=======
-                                android:textColor="@color/lightGrey"
-                                android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
                         </LinearLayout>
 
                     </LinearLayout>
@@ -209,20 +176,11 @@
                         <Button
                             android:id="@+id/button_30"
                             android:layout_width="wrap_content"
-<<<<<<< HEAD
                             android:layout_height="40dp"
                             android:layout_weight="1"
                             android:background="@drawable/border_primary_color"
                             android:text="View"
                             android:textColor="@drawable/btn_txt_primary_color" />
-=======
-                            android:layout_height="25dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/border_primary_color"
-                            android:text="View"
-                            android:textColor="@drawable/btn_txt_primary_color"
-                            android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
                     </LinearLayout>
 
                 </LinearLayout>
@@ -242,13 +200,7 @@
                     android:layout_marginStart="20dp"
                     android:text="Order History"
                     android:textAllCaps="true"
-<<<<<<< HEAD
                     android:textColor="@color/darkPurple" />
-=======
-                    android:textColor="@color/darkPurple"
-                    android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -279,23 +231,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Light Tidying Up"
                                 android:textColor="@color/midGrey"
-<<<<<<< HEAD
                                 android:textSize="16sp" />
-=======
-                                android:textSize="14sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
-
                             <TextView
                                 android:id="@+id/textView900"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="15/04/2017"
-<<<<<<< HEAD
                                 android:textColor="@color/lightGrey" />
-=======
-                                android:textColor="@color/lightGrey"
-                                android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
                         </LinearLayout>
 
                     </LinearLayout>
@@ -368,23 +310,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Light Tidying Up"
                                 android:textColor="@color/midGrey"
-<<<<<<< HEAD
                                 android:textSize="16sp" />
-=======
-                                android:textSize="14sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
-
                             <TextView
                                 android:id="@+id/textView_900"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="15/04/2017"
-<<<<<<< HEAD
                                 android:textColor="@color/lightGrey" />
-=======
-                                android:textColor="@color/lightGrey"
-                                android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
                         </LinearLayout>
 
                     </LinearLayout>
@@ -403,7 +335,7 @@
                             android:orientation="vertical">
 
                             <RatingBar
-                                android:id="@+id/rating_Bar_"
+                                android:id="@+id/rating_Bar1"
                                 style="?android:attr/ratingBarStyleSmall"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -414,7 +346,7 @@
                                 android:theme="@style/RatingBar" />
 
                             <TextView
-                                android:id="@+id/textView100"
+                                android:id="@+id/textView101"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="end"
@@ -456,24 +388,14 @@
                                 android:layout_height="wrap_content"
                                 android:text="Light Tidying Up"
                                 android:textColor="@color/midGrey"
-<<<<<<< HEAD
                                 android:textSize="16sp" />
-=======
-                                android:textSize="14sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
-
                             <TextView
                                 android:id="@+id/textView90"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="15/04/2017"
-<<<<<<< HEAD
                                 android:textColor="@color/lightGrey" />
-=======
-                                android:textColor="@color/lightGrey"
-                                android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
-                        </LinearLayout>
+                 </LinearLayout>
 
                     </LinearLayout>
 
@@ -538,28 +460,18 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/textView_800"
+                                android:id="@+id/textView_801"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Light Tidying Up"
                                 android:textColor="@color/midGrey"
-<<<<<<< HEAD
                                 android:textSize="16sp" />
-=======
-                                android:textSize="14sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
-
                             <TextView
-                                android:id="@+id/textView_900"
+                                android:id="@+id/textView_901"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="15/04/2017"
-<<<<<<< HEAD
                                 android:textColor="@color/lightGrey" />
-=======
-                                android:textColor="@color/lightGrey"
-                                android:textSize="12sp" />
->>>>>>> 1a773984c346a32bf9f336219838f9278443c5d8
                         </LinearLayout>
 
                     </LinearLayout>
