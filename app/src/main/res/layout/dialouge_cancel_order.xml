@@ -23,12 +23,16 @@
         android:id="@+id/txt_reason"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_textbox"
         android:gravity="top"
         android:hint="Type Reason for Cancel Service"
         android:minLines="10"
-        android:textColor="#000" />
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textCursorDrawable="@null"
+        android:textSize="14sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

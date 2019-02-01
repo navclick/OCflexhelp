@@ -65,7 +65,8 @@
                     android:layout_marginStart="20dp"
                     android:text="Active Orders"
                     android:textAllCaps="true"
-                    />
+                    android:textColor="@color/darkPurple"
+                    android:textStyle="bold" />
 
 
 
@@ -73,7 +74,7 @@
                     android:id="@+id/recycler_view_myorder_active"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    android:nestedScrollingEnabled="false" />
 
 
 
@@ -93,13 +94,14 @@
                     android:layout_marginStart="20dp"
                     android:text="Order History"
                     android:textAllCaps="true"
-                    android:textColor="@color/darkPurple" />
+                    android:textColor="@color/darkPurple"
+                    android:textStyle="bold" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view_myorder_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    android:nestedScrollingEnabled="false" />
 
             </LinearLayout>
 

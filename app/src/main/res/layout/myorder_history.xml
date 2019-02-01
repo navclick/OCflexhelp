@@ -13,7 +13,8 @@
         android:background="@drawable/underline"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        android:paddingBottom="20dp"
+        android:paddingBottom="25dp"
+        android:paddingTop="25dp"
         android:weightSum="10">
 
         <LinearLayout
