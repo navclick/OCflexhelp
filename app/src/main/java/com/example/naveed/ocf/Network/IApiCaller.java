@@ -8,6 +8,8 @@ import com.example.naveed.ocf.Models.SignUpRequest;
 import com.example.naveed.ocf.Models.StatusUpdateRequest;
 import com.example.naveed.ocf.Models.StatusUpdateResponse;
 import com.example.naveed.ocf.Models.Token;
+import com.example.naveed.ocf.Models.UserUpdateRequest;
+import com.example.naveed.ocf.Models.UserUpdateResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -45,6 +47,10 @@ public interface IApiCaller {
 
     @POST(EndPoints.POST_UPDATE_ORDER)
     Call<StatusUpdateResponse> registerUser(@Body StatusUpdateRequest OrderStatus);
+
+
+    @POST(EndPoints.POST_USER_PROFILE_UPDATE)
+    Call<UserUpdateResponse> updateProfile(@Body UserUpdateRequest profile);
 
     // Customer Service ends
 }

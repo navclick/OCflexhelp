@@ -115,7 +115,7 @@ public class OrderActivity extends BaseActivity implements  NavigationView.OnNav
     @TargetApi(Build.VERSION_CODES.M)
     private void GetPermissions(){
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
             if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.LOLLIPOP){
                 List<String> permissionsNeeded = new ArrayList<String>();
@@ -127,6 +127,9 @@ public class OrderActivity extends BaseActivity implements  NavigationView.OnNav
                     permissionsNeeded.add("Location");
                 if (!addPermission(permissionsList, Manifest.permission.CALL_PHONE))
                     permissionsNeeded.add("Call");
+
+                if (!addPermission(permissionsList, Manifest.permission.CAMERA))
+                    permissionsNeeded.add("Camera");
 
                 if (permissionsList.size() > 0) {
                     if (permissionsNeeded.size() > 0) {
@@ -171,13 +174,17 @@ public class OrderActivity extends BaseActivity implements  NavigationView.OnNav
                 perms.put(Manifest.permission.ACCESS_FINE_LOCATION, PackageManager.PERMISSION_GRANTED);
                 perms.put(Manifest.permission.ACCESS_COARSE_LOCATION, PackageManager.PERMISSION_GRANTED);
                 perms.put(Manifest.permission.CALL_PHONE, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.CAMERA, PackageManager.PERMISSION_GRANTED);
                 // Fill with results
                 for (int i = 0; i < permissions.length; i++)
                     perms.put(permissions[i], grantResults[i]);
                 // Check for ACCESS_FINE_LOCATION
                 if (perms.get(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                         && perms.get(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                        && perms.get(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                        && perms.get(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED
+                        && perms.get(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+
+                ) {
                     // All Permissions Granted
 
                    // setMapForV6();
@@ -273,6 +280,8 @@ showProgress();
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+            BaseActivity.startActivity(this, EditProfileActivity.class);
+
         }
 
         else if (id == R.id.menu_payments) {
