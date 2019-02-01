@@ -5,9 +5,9 @@
             android:title="My Orders" />
         <item android:id="@+id/menu_profile" android:icon="@mipmap/edit_profile"
             android:title="Edit Profile" />
-        <item android:id="@+id/menu_payments" android:icon="@mipmap/settings"
+        <item android:id="@+id/menu_payments" android:icon="@mipmap/payment"
             android:title="Payments" />
-        <item android:id="@+id/menu_Schedules" android:icon="@mipmap/services"
+        <item android:id="@+id/menu_Schedules" android:icon="@mipmap/schedules"
             android:title="Schedules" />
         <item android:id="@+id/menu_logout" android:icon="@mipmap/logout"
             android:title="Logout" />

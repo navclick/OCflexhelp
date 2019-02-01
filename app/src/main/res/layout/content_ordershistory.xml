@@ -466,14 +466,14 @@
                         android:textColor="#828282"
                         android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/textView_2050"
-                        android:layout_width="match_parent"
+                    <RatingBar
+                        android:id="@+id/ratingBar2"
+                        android:theme="@style/RatingBar"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="10:00 AM"
-                        android:textColor="#758089"
-                        android:textSize="18sp" />
+                        android:numStars="5"
+                        android:stepSize="1"/>
+
                 </LinearLayout>
             </LinearLayout>
 
