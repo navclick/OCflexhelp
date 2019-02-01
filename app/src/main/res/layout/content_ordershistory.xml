@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="48dp"
     android:background="#fff">
 
     <RelativeLayout
@@ -91,10 +92,10 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="40dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/round_corner"
             android:text="ORDER HISTORY"
             android:textColor="@drawable/txt_round_corner" />
@@ -182,9 +183,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="30dp"
                 android:layout_marginStart="30dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="10"
-                android:baselineAligned="false">
+                android:weightSum="10">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -242,9 +243,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="30dp"
                 android:layout_marginStart="30dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="10"
-                android:baselineAligned="false">
+                android:weightSum="10">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -302,9 +303,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="30dp"
                 android:layout_marginStart="30dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="10"
-                android:baselineAligned="false">
+                android:weightSum="10">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -362,9 +363,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:layout_marginStart="30dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="10"
-                android:baselineAligned="false">
+                android:weightSum="10">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -422,9 +423,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:layout_marginStart="30dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="10"
-                android:baselineAligned="false">
+                android:weightSum="10">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -468,11 +469,11 @@
 
                     <RatingBar
                         android:id="@+id/ratingBar2"
-                        android:theme="@style/RatingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:numStars="5"
-                        android:stepSize="1"/>
+                        android:stepSize="1"
+                        android:theme="@style/RatingBar" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -482,9 +483,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:layout_marginStart="30dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="10"
-                android:baselineAligned="false">
+                android:weightSum="10">
 
                 <LinearLayout
                     android:layout_width="0dp"

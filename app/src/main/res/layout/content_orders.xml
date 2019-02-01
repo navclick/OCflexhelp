@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="48dp"
     android:background="#E6ECED"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -20,8 +21,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
                 <View
@@ -54,14 +55,13 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view_ActiveOrders"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="20dp"
-                android:orientation="vertical"/>
+                android:orientation="vertical" />
 
         </LinearLayout>
 
