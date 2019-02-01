@@ -2,6 +2,7 @@ package com.example.naveed.ocf.Network;
 
 import com.example.naveed.ocf.Models.CustomerService;
 import com.example.naveed.ocf.Models.GeneralResponse;
+import com.example.naveed.ocf.Models.GetUserResponse;
 import com.example.naveed.ocf.Models.OrdersResponse;
 import com.example.naveed.ocf.Models.SignUpRequest;
 import com.example.naveed.ocf.Models.StatusUpdateRequest;
@@ -37,6 +38,9 @@ public interface IApiCaller {
 
     @GET(EndPoints.GET_ORDERS)
     Call<OrdersResponse> GetOrders();
+
+    @GET(EndPoints.GET_USER_PROFILE)
+    Call<GetUserResponse> GetProfile();
 
 
     @POST(EndPoints.POST_UPDATE_ORDER)

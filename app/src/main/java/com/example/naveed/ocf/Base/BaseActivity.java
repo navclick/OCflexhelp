@@ -15,13 +15,14 @@ import com.example.naveed.ocf.Activities.Login;
 import com.example.naveed.ocf.Helper.Constants;
 import com.example.naveed.ocf.Helper.ProgressLoader;
 import com.example.naveed.ocf.Helper.TokenHelper;
+import com.example.naveed.ocf.Models.GetUserResponse;
 import com.example.naveed.ocf.Models.StatusUpdateRequest;
 import com.example.naveed.ocf.Models.StatusUpdateResponse;
 import com.example.naveed.ocf.Network.RestClient;
 import com.example.naveed.ocf.R;
 import com.google.gson.Gson;
 
-public class BaseActivity extends AppCompatActivity{
+public class BaseActivity extends AppCompatActivity {
 
     //Declarations
     protected ViewDataBinding parentBinding;
@@ -36,14 +37,14 @@ public class BaseActivity extends AppCompatActivity{
         tokenHelper = new TokenHelper(this);
     }
 
-    public void OpenActivity(Class activity){
-        startActivity(new Intent(this,activity));
+    public void OpenActivity(Class activity) {
+        startActivity(new Intent(this, activity));
     }
 
-    public <S> void OpenActivity(Class<S> activity, Boolean isTokenCheck){
-        if(tokenHelper.GetToken() == null || tokenHelper.GetToken() == ""){
+    public <S> void OpenActivity(Class<S> activity, Boolean isTokenCheck) {
+        if (tokenHelper.GetToken() == null || tokenHelper.GetToken() == "") {
             startActivity(new Intent(this, Login.class));
-        }else{
+        } else {
             startActivity(new Intent(this, activity));
         }
     }
@@ -55,19 +56,15 @@ public class BaseActivity extends AppCompatActivity{
     }
 
 
-    public void showProgress()
-    {
+    public void showProgress() {
         try {
-            if (progressLoader == null)
-            {
+            if (progressLoader == null) {
                 progressLoader = new ProgressLoader();
             }
 
             progressLoader.show(getSupportFragmentManager(), Constants.TAG);
-        }
-        catch (IllegalStateException e)
-        {
-           // Log.e(TAG, "showProgress:" + e.getMessage());
+        } catch (IllegalStateException e) {
+            // Log.e(TAG, "showProgress:" + e.getMessage());
         }
 
     }
@@ -92,7 +89,7 @@ public class BaseActivity extends AppCompatActivity{
     }
 
 
-    public  void UpdateOrderStatus(int orderID,int StatusID, String Reason){
+    public void UpdateOrderStatus(int orderID, int StatusID, String Reason) {
 
         StatusUpdateRequest requestObj = new StatusUpdateRequest();
         requestObj.setOrderid(orderID);
@@ -101,24 +98,23 @@ public class BaseActivity extends AppCompatActivity{
         showProgress();
 
         Gson g = new Gson();
-        String userJson= g.toJson(requestObj);
+        String userJson = g.toJson(requestObj);
         Log.d("test", userJson);
         RestClient.getAuthAdapterToekn(tokenHelper.GetToken()).registerUser(requestObj).enqueue(new GeneralCallBack<StatusUpdateResponse>(this) {
             @Override
             public void onSuccess(StatusUpdateResponse response) {
                 Gson gson = new Gson();
-                String Reslog= gson.toJson(response);
+                String Reslog = gson.toJson(response);
                 Log.d("test", Reslog);
 
 
                 hideProgress();
 
-                if(!response.getIserror()){
+                if (!response.getIserror()) {
 
-                  //  showMessageDailog(getString(R.string.app_name),Constants.MSG_SERVICE_STATUS_UPDATED);
+                    //  showMessageDailog(getString(R.string.app_name),Constants.MSG_SERVICE_STATUS_UPDATED);
 
-                }
-                else{
+                } else {
 
                     //showMessageDailog(getString(R.string.app_name),response.getMessage());
 
@@ -131,7 +127,7 @@ public class BaseActivity extends AppCompatActivity{
             public void onFailure(Throwable throwable) {
                 //onFailure implementation would be in GeneralCallBack class
 
-                showMessageDailog(getString(R.string.app_name),throwable.getMessage().toString());
+                showMessageDailog(getString(R.string.app_name), throwable.getMessage().toString());
                 Toast.makeText(getApplicationContext(), "Failed",
                         Toast.LENGTH_LONG).show();
 
@@ -141,13 +137,58 @@ public class BaseActivity extends AppCompatActivity{
             }
 
 
+        });
+
+    }
 
 
+    public GetUserResponse GetUserProfile() {
+
+        final GetUserResponse[] profile = {new GetUserResponse()};
+        RestClient.getAuthAdapterToekn(tokenHelper.GetToken()).GetProfile().enqueue(new GeneralCallBack<GetUserResponse>(this) {
+            @Override
+            public void onSuccess(GetUserResponse response) {
+                Gson gson = new Gson();
+                String Reslog = gson.toJson(response);
+                Log.d("test", Reslog);
+
+
+                hideProgress();
+
+                if (!response.getIserror()) {
+
+                    //  showMessageDailog(getString(R.string.app_name),Constants.MSG_SERVICE_STATUS_UPDATED);
+                    profile[0] = response;
+                } else {
+
+                    //showMessageDailog(getString(R.string.app_name),response.getMessage());
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                //onFailure implementation would be in GeneralCallBack class
+
+                showMessageDailog(getString(R.string.app_name), throwable.getMessage().toString());
+                Toast.makeText(getApplicationContext(), "Failed",
+                        Toast.LENGTH_LONG).show();
+
+                hideProgress();
+                Log.d("test", "failed");
+
+            }
 
 
         });
 
+        Log.d(Constants.TAG,profile[0].getValue().getFullName());
+
+return  profile[0];
     }
+
 
     public void showMessageDailog(String title, String message) {
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this, R.style.MyDialogTheme);

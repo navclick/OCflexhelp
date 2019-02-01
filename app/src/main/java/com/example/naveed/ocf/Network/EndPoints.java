@@ -9,4 +9,9 @@ public class EndPoints {
 
     static final String GET_ORDERS=API_PREFIX+"order/getassignorders";
     static final String POST_UPDATE_ORDER=API_PREFIX+"order/updateorderstatus";
+
+    static final  String GET_USER_PROFILE=API_PREFIX+"accounts/GetUser";
+
+
+
 }

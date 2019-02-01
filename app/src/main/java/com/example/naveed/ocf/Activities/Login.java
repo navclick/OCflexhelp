@@ -7,14 +7,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.naveed.ocf.Base.GeneralCallBack;
 import com.example.naveed.ocf.Helper.Constants;
 import com.example.naveed.ocf.Helper.GeneralHelper;
+import com.example.naveed.ocf.Models.GetUserResponse;
 import com.example.naveed.ocf.Models.Token;
 import com.example.naveed.ocf.Network.ApiClient;
 import com.example.naveed.ocf.Network.IApiCaller;
+import com.example.naveed.ocf.Network.RestClient;
 import com.example.naveed.ocf.R;
 import com.example.naveed.ocf.Base.BaseActivity;
 import com.example.naveed.ocf.Utility.ValidationUtility;
+import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
@@ -105,7 +109,7 @@ public class Login extends BaseActivity implements View.OnClickListener{
                             // TODO: Open main screen if token is set successfully
                             hideProgress();
                             Log.d(Constants.TAG,objToken.getAccessToken());
-                            OpenActivity(OrderActivity.class);
+                            getAndSetProfile();
                         }
                     }
                 }
@@ -121,5 +125,59 @@ public class Login extends BaseActivity implements View.OnClickListener{
             Log.d("error",e.getMessage());
             Toast.makeText(Login.this, "Email or password is not correct", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void getAndSetProfile(){
+
+
+
+        RestClient.getAuthAdapterToekn(tokenHelper.GetToken()).GetProfile().enqueue(new GeneralCallBack<GetUserResponse>(this) {
+            @Override
+            public void onSuccess(GetUserResponse response) {
+                Gson gson = new Gson();
+                String Reslog = gson.toJson(response);
+                Log.d("test", Reslog);
+
+
+                hideProgress();
+
+                if (!response.getIserror()) {
+
+                    //  showMessageDailog(getString(R.string.app_name),Constants.MSG_SERVICE_STATUS_UPDATED);
+                    tokenHelper.SetUserName(response.getValue().getFullName());
+                    tokenHelper.SetUserEmail(response.getValue().getEmail());
+                    tokenHelper.SetUserPhoto(response.getValue().getImage());
+                    OpenActivity(OrderActivity.class);
+                } else {
+
+                    //showMessageDailog(getString(R.string.app_name),response.getMessage());
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                //onFailure implementation would be in GeneralCallBack class
+
+                showMessageDailog(getString(R.string.app_name), throwable.getMessage().toString());
+                Toast.makeText(getApplicationContext(), "Failed",
+                        Toast.LENGTH_LONG).show();
+
+                hideProgress();
+                Log.d("test", "failed");
+
+            }
+
+
+        });
+
+
+
+
+
+
+
     }
 }

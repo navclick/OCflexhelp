@@ -82,7 +82,7 @@ public class OrderActivity extends BaseActivity implements  NavigationView.OnNav
 
         View header = navigationView.getHeaderView(0);
         TextView t = (TextView) header.findViewById(R.id.txt_main_name);
-        t.setText("ASAD");
+        t.setText(tokenHelper.GetUserName());
 
         recyclerViewActiveOrder = (RecyclerView) findViewById(R.id.recycler_view_ActiveOrders);
 
