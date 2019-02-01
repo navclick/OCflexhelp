@@ -35,6 +35,7 @@ import com.example.naveed.ocf.R;
 import com.example.naveed.ocf.Base.BaseActivity;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -82,8 +83,15 @@ public class OrderActivity extends BaseActivity implements  NavigationView.OnNav
 
         View header = navigationView.getHeaderView(0);
         TextView t = (TextView) header.findViewById(R.id.txt_main_name);
-        t.setText(tokenHelper.GetUserName());
+        TextView tEmail = (TextView) header.findViewById(R.id.txt_email);
+        ImageView profile_img= (ImageView) header.findViewById(R.id.img_nav_profile);
+        tEmail.setText(tokenHelper.GetUserEmail());
 
+        t.setText(tokenHelper.GetUserName());
+        Log.d(Constants.TAG,tokenHelper.GetUserPhoto());
+        profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
+        Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
+        //profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
         recyclerViewActiveOrder = (RecyclerView) findViewById(R.id.recycler_view_ActiveOrders);
 
         mAdapterActiveOrder = new ServiceOrderAdapter(this.ListActiveOrders);

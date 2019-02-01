@@ -5,14 +5,19 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.naveed.ocf.Base.BaseActivity;
+import com.example.naveed.ocf.Helper.Constants;
 import com.example.naveed.ocf.R;
+import com.squareup.picasso.Picasso;
 
 public class PaymentActivity extends BaseActivity implements   NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,6 +42,17 @@ public class PaymentActivity extends BaseActivity implements   NavigationView.On
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_payment);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header = navigationView.getHeaderView(0);
+        TextView t = (TextView) header.findViewById(R.id.txt_main_name);
+        TextView tEmail = (TextView) header.findViewById(R.id.txt_email);
+        ImageView profile_img= (ImageView) header.findViewById(R.id.img_nav_profile);
+        tEmail.setText(tokenHelper.GetUserEmail());
+
+        t.setText(tokenHelper.GetUserName());
+        Log.d(Constants.TAG,tokenHelper.GetUserPhoto());
+        profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
+        Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
 
     }
 

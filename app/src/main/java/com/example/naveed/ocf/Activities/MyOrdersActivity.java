@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.naveed.ocf.Adapters.MyordersActiveAdaptar;
 import com.example.naveed.ocf.Adapters.MyordersHistoryAdaptar;
@@ -21,6 +24,7 @@ import com.example.naveed.ocf.Models.OrdersResponse;
 import com.example.naveed.ocf.Network.RestClient;
 import com.example.naveed.ocf.R;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +67,16 @@ public class MyOrdersActivity extends BaseActivity implements  NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        View header = navigationView.getHeaderView(0);
+        TextView t = (TextView) header.findViewById(R.id.txt_main_name);
+        TextView tEmail = (TextView) header.findViewById(R.id.txt_email);
+        ImageView profile_img= (ImageView) header.findViewById(R.id.img_nav_profile);
+        tEmail.setText(tokenHelper.GetUserEmail());
+
+        t.setText(tokenHelper.GetUserName());
+        Log.d(Constants.TAG,tokenHelper.GetUserPhoto());
+        profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
+        Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
 
 
 
