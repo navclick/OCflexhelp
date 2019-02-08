@@ -4,6 +4,8 @@ import com.example.naveed.ocf.Models.CustomerService;
 import com.example.naveed.ocf.Models.GeneralResponse;
 import com.example.naveed.ocf.Models.GetUserResponse;
 import com.example.naveed.ocf.Models.OrdersResponse;
+import com.example.naveed.ocf.Models.RatingRequest;
+import com.example.naveed.ocf.Models.RatingResponse;
 import com.example.naveed.ocf.Models.SignUpRequest;
 import com.example.naveed.ocf.Models.StatusUpdateRequest;
 import com.example.naveed.ocf.Models.StatusUpdateResponse;
@@ -51,6 +53,10 @@ public interface IApiCaller {
 
     @POST(EndPoints.POST_USER_PROFILE_UPDATE)
     Call<UserUpdateResponse> updateProfile(@Body UserUpdateRequest profile);
+
+    @POST(EndPoints.POST_RATING)
+    Call<RatingResponse> rateCustomer(@Body RatingRequest Rating);
+
 
     // Customer Service ends
 }

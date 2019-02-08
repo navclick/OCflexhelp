@@ -109,14 +109,14 @@ public class OrderActivity extends BaseActivity implements  NavigationView.OnNav
 
 
 
+Log.d("test",tokenHelper.GetToken());
 
 
 
 
 
-        GetOrders();
         GetPermissions();
-
+        GetOrders();
 
     }
 
@@ -227,7 +227,7 @@ showProgress();
             public void onSuccess(OrdersResponse response) {
                 Gson gson = new Gson();
                 String Reslog= gson.toJson(response);
-                Log.d(Constants.TAG, Reslog);
+                Log.d("ORDERS", Reslog);
                 ListActiveOrders.clear();
                 if(!response.getIserror()){
 

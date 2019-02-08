@@ -113,6 +113,18 @@ public class OrdersResponse {
         @SerializedName("status")
         @Expose
         private String status;
+        @SerializedName("ratingByCustomer")
+        @Expose
+        private Object ratingByCustomer;
+        @SerializedName("customerRatingMessage")
+        @Expose
+        private Object customerRatingMessage;
+        @SerializedName("ratingByAssociate")
+        @Expose
+        private Object ratingByAssociate;
+        @SerializedName("associateRatingMessage")
+        @Expose
+        private Object associateRatingMessage;
 
         public Integer getId() {
             return id;
@@ -240,6 +252,38 @@ public class OrdersResponse {
 
         public void setStatus(String status) {
             this.status = status;
+        }
+
+        public Object getRatingByCustomer() {
+            return ratingByCustomer;
+        }
+
+        public void setRatingByCustomer(Object ratingByCustomer) {
+            this.ratingByCustomer = ratingByCustomer;
+        }
+
+        public Object getCustomerRatingMessage() {
+            return customerRatingMessage;
+        }
+
+        public void setCustomerRatingMessage(Object customerRatingMessage) {
+            this.customerRatingMessage = customerRatingMessage;
+        }
+
+        public Object getRatingByAssociate() {
+            return ratingByAssociate;
+        }
+
+        public void setRatingByAssociate(Object ratingByAssociate) {
+            this.ratingByAssociate = ratingByAssociate;
+        }
+
+        public Object getAssociateRatingMessage() {
+            return associateRatingMessage;
+        }
+
+        public void setAssociateRatingMessage(Object associateRatingMessage) {
+            this.associateRatingMessage = associateRatingMessage;
         }
     }
 }

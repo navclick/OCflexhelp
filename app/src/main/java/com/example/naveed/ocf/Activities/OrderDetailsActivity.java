@@ -1,10 +1,20 @@
 package com.example.naveed.ocf.Activities;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -12,9 +22,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.naveed.ocf.Base.BaseActivity;
 import com.example.naveed.ocf.Helper.Constants;
@@ -23,22 +36,32 @@ import com.example.naveed.ocf.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.List;
 
-public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCallback,View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, LocationListener {
 
-public TextView txt_order_status,txt_order_number,txt_order_Price,txt_order_service_name,txt_order_date,txt_order_time,txt_order_customer_address;
-public Button btn_active,btn_complete,btn_cancel;
+    public TextView txt_order_status, txt_order_number, txt_order_Price, txt_order_service_name, txt_order_date, txt_order_time, txt_order_customer_address;
+    public Button btn_active, btn_complete, btn_cancel;
 
     static final LatLng HAMBURG = new LatLng(53.558, 9.927);
     static final LatLng KIEL = new LatLng(53.551, 9.993);
     private GoogleMap mMap;
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
+    protected Context context;
+    float zoomLevel = (float) 15.0;
+
+    public Marker MeMarker = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,15 +83,13 @@ public Button btn_active,btn_complete,btn_cancel;
         View header = navigationView.getHeaderView(0);
         TextView t = (TextView) header.findViewById(R.id.txt_main_name);
         TextView tEmail = (TextView) header.findViewById(R.id.txt_email);
-        ImageView profile_img= (ImageView) header.findViewById(R.id.img_nav_profile);
+        ImageView profile_img = (ImageView) header.findViewById(R.id.img_nav_profile);
         tEmail.setText(tokenHelper.GetUserEmail());
 
         t.setText(tokenHelper.GetUserName());
-        Log.d(Constants.TAG,tokenHelper.GetUserPhoto());
+        Log.d(Constants.TAG, tokenHelper.GetUserPhoto());
         profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
         Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
-
-
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -103,6 +124,23 @@ public Button btn_active,btn_complete,btn_cancel;
         btn_complete.setOnClickListener(this);
         btn_cancel.setOnClickListener(this);
 
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+
+            showMessageDailog("MAP", Constants.MESSAGE_REQUESTED_PERMISSION_DENIED);
+            return;
+        }
+
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 0, this);
+
+
     }
 
     @Override
@@ -111,11 +149,11 @@ public Button btn_active,btn_complete,btn_cancel;
 
         // Add a marker in Sydney and move the camera
 
-        LatLng custLocation = getLocationFromAddress(this,OrderDetails.CustomerAddress);
+        LatLng custLocation = getLocationFromAddress(this, OrderDetails.CustomerAddress);
 
-        Log.d(Constants.TAG,"cusLoc"+ String.valueOf(custLocation.latitude));
-      //  mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
-        float zoomLevel = (float) 15.0;
+        Log.d(Constants.TAG, "cusLoc" + String.valueOf(custLocation.latitude));
+        //  mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
+
 
         MarkerOptions markerOptions = new MarkerOptions();
 
@@ -128,12 +166,139 @@ public Button btn_active,btn_complete,btn_cancel;
 
         // Clears the previously touched position
 
-
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
 
         mMap.addMarker(markerOptions).showInfoWindow();
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(custLocation,zoomLevel));
 
     }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+
+
+        locationManager.removeUpdates(locationListener);
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        //txtLat = (TextView) findViewById(R.id.textview1);
+        //txtLat.setText("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
+        Log.d(Constants.TAG,"Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
+
+        LatLng MyLocation = new LatLng(location.getLatitude(), location.getLongitude());
+
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude(),
+                Toast.LENGTH_SHORT);
+
+        toast.show();
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(MyLocation));
+
+/*
+       if (this.MeMarker == null) {
+
+
+
+
+            this.MeMarker = mMap.addMarker(new MarkerOptions()
+                    .position(MyLocation)
+
+                    .title("You")
+                    .icon(BitmapDescriptorFactory.fromBitmap(
+                            BitmapFactory.decodeResource(getResources(),
+                                    R.drawable.pin_rickshaw)))
+                    .snippet("You")
+
+            );
+            this.MeMarker.showInfoWindow();
+           // mMap.addMarker(MeMarker).showInfoWindow();
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(MyLocation));
+
+
+        } else {
+           // Log.i("APITEST:", "set" + String.valueOf(rickshawLocation.latitude) + " " + String.valueOf(rickshawLocation.longitude));
+            this.MeMarker.setTitle("You");
+            this.MeMarker.setPosition(MyLocation);
+
+            this.MeMarker.setSnippet("You");
+            this.MeMarker.showInfoWindow();
+            this.animateMarker(this.MeMarker, MyLocation, false);
+
+        }
+
+
+*/
+
+
+      // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(MyLocation,zoomLevel));
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        Log.d("Latitude","disable");
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        Log.d("Latitude","enable");
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        Log.d("Latitude","status");
+    }
+
+
+    public void animateMarker(final Marker marker, final LatLng toPosition,
+                              final boolean hideMarker) {
+        final Handler handler = new Handler();
+        final long start = SystemClock.uptimeMillis();
+        Projection proj = mMap.getProjection();
+        Point startPoint = proj.toScreenLocation(marker.getPosition());
+        final LatLng startLatLng = proj.fromScreenLocation(startPoint);
+        final long duration = 500;
+
+        final Interpolator interpolator = new LinearInterpolator();
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                long elapsed = SystemClock.uptimeMillis() - start;
+                float t = interpolator.getInterpolation((float) elapsed
+                        / duration);
+                double lng = t * toPosition.longitude + (1 - t)
+                        * startLatLng.longitude;
+                double lat = t * toPosition.latitude + (1 - t)
+                        * startLatLng.latitude;
+                marker.setPosition(new LatLng(lat, lng));
+
+                if (t < 1.0) {
+                    // Post again 16ms later.
+                    handler.postDelayed(this, 16);
+                } else {
+                    if (hideMarker) {
+                        marker.setVisible(false);
+                    } else {
+                        marker.setVisible(true);
+                    }
+                }
+            }
+        });
+    }
+
 
     public void setButton(int status){
 btn_active.setVisibility(View.GONE);
@@ -175,7 +340,7 @@ btn_active.setVisibility(View.GONE);
             case R.id.btn_complete:
 
                 OrderDetails.OrderStatus=Constants.ORDER_COMPLETED;
-                //UpdateOrderStatus(OrderDetails.OrderNumber,OrderDetails.OrderStatus,"N/A");
+                UpdateOrderStatus(OrderDetails.OrderNumber,OrderDetails.OrderStatus,"N/A");
                 BaseActivity.startActivity(this, RateCustomerActivity.class);
 
                 break;

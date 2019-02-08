@@ -226,4 +226,11 @@ return  profile[0];
     }
 
 
+    public void showMessageToast(String message) {
+        Toast.makeText(getApplicationContext(), message,
+                Toast.LENGTH_LONG).show();
+
+    }
+
+
 }

@@ -86,7 +86,7 @@ public class MyOrdersActivity extends BaseActivity implements  NavigationView.On
 
 
         mAdapterActiveOrder = new MyordersActiveAdaptar(this.ListActiveOrders);
-        mAdapterHistoryOrder = new MyordersHistoryAdaptar(this.ListActiveOrders);
+        mAdapterHistoryOrder = new MyordersHistoryAdaptar(this.ListHistoreOrders);
 
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -139,6 +139,7 @@ public class MyOrdersActivity extends BaseActivity implements  NavigationView.On
                 String Reslog= gson.toJson(response);
                 Log.d(Constants.TAG, Reslog);
                 ListActiveOrders.clear();
+                ListHistoreOrders.clear();
                 if(!response.getIserror()){
 
                     List<OrdersResponse.OdersValue> list = response.getValue();

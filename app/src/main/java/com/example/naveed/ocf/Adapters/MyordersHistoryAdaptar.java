@@ -101,6 +101,7 @@ public class MyordersHistoryAdaptar extends RecyclerView.Adapter<MyordersHistory
 
 
 
+
             }
 
 
@@ -202,7 +203,7 @@ public class MyordersHistoryAdaptar extends RecyclerView.Adapter<MyordersHistory
 
 
 
-
+            Log.d("test",Order.getServiceName());
             holder.txt_service_name.setText(Order.getServiceName());
 
             holder.txt_service_date.setText(formattedDate);

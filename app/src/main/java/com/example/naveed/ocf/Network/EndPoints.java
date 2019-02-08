@@ -13,6 +13,8 @@ public class EndPoints {
     static final  String GET_USER_PROFILE=API_PREFIX+"accounts/GetUser";
     static final  String POST_USER_PROFILE_UPDATE=API_PREFIX+"accounts/updateuser";
 
+    static final  String POST_RATING=API_PREFIX+"order/updateratingbyassociate";
+
 
 
 
