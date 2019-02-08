@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="top"
-        android:layout_weight="0.6"
+        android:layout_weight="0.5"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
             <View
@@ -200,7 +200,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.5"
         android:orientation="vertical">
 
 
