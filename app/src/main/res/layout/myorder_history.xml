@@ -60,15 +60,16 @@
                 android:gravity="right|end"
                 android:orientation="vertical">
 
+
+
                 <RatingBar
-                    android:id="@+id/rating_barhis"
+                    android:id="@+id/rating_barh"
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:clickable="true"
+                    android:clickable="false"
                     android:numStars="5"
-                    android:rating="2"
-                    android:stepSize="0.5"
+                    android:rating="5"
                     android:theme="@style/RatingBar" />
 
                 <TextView

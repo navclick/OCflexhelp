@@ -32,7 +32,7 @@ public class MyordersHistoryAdaptar extends RecyclerView.Adapter<MyordersHistory
 
         public TextView txt_service_name,txt_service_date,txt_amount;
         public Button btn_view;
-        public RatingBar rating_Barhis;
+        public RatingBar rating_barhis;
 
         private String mItem;
         private TextView mTextView;
@@ -44,7 +44,7 @@ public class MyordersHistoryAdaptar extends RecyclerView.Adapter<MyordersHistory
             txt_service_name = (TextView) view.findViewById(R.id.txt_service_name);
             txt_amount = (TextView) view.findViewById(R.id.txt_amount);
             txt_service_date = (TextView) view.findViewById(R.id.txt_service_date);
-            rating_Barhis = (RatingBar) view.findViewById(R.id.rating_barhis);
+            rating_barhis = (RatingBar) view.findViewById(R.id.rating_barh);
 
             view.setOnClickListener(this);
 
@@ -202,13 +202,19 @@ public class MyordersHistoryAdaptar extends RecyclerView.Adapter<MyordersHistory
             Log.d(Constants.TAG,formattedTime +" - " + formattedTime);
 
 
+            holder.rating_barhis.setMax(5);
+
 
             Log.d("test",Order.getServiceName());
             holder.txt_service_name.setText(Order.getServiceName());
 
             holder.txt_service_date.setText(formattedDate);
             holder.txt_amount.setText("$ "+Order.getAmount().toString());
-            holder.rating_Barhis.setRating(1.0f);
+
+            Log.d(Constants.TAG,"Ser"+ String.valueOf(Order.getRatingByAssociate()));
+            float rating = (float) Order.getRatingByAssociate();
+            Log.d(Constants.TAG,String.valueOf(rating));
+            holder.rating_barhis.setRating(Float.parseFloat("2.0"));
 
         }
         catch (Exception e){

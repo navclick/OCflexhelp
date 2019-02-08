@@ -274,7 +274,6 @@ showProgress();
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_orders);
 
 
-
         if (id == R.id.menu_myorders) {
             // Handle the camera action
             mDrawerLayout.closeDrawers();
@@ -288,14 +287,14 @@ showProgress();
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
-            BaseActivity.startActivity(this, EditProfileActivity.class);
 
+            BaseActivity.startActivity(this,EditProfileActivity.class);
         }
 
         else if (id == R.id.menu_payments) {
             mDrawerLayout.closeDrawers();
 
-            BaseActivity.startActivity(this, PaymentActivity.class);
+            BaseActivity.startActivity(this,PaymentActivity.class);
             // openActivity(ShoppingListActivity.class);
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
@@ -316,12 +315,13 @@ showProgress();
         else if (id == R.id.menu_logout) {
             mDrawerLayout.closeDrawers();
             // openActivity(AllCatActivity.class);
-            logOut();
+
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
-
+            logOut();
         }
+
         return  true;
     }
 
