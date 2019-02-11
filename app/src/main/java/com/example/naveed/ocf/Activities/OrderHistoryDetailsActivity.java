@@ -101,8 +101,6 @@ public class OrderHistoryDetailsActivity extends BaseActivity implements  View.O
         int id = item.getItemId();
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_ordershis);
 
-
-
         if (id == R.id.menu_myorders) {
             // Handle the camera action
             mDrawerLayout.closeDrawers();
@@ -150,6 +148,8 @@ public class OrderHistoryDetailsActivity extends BaseActivity implements  View.O
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
             logOut();
         }
+
+
 
         return  true;
     }

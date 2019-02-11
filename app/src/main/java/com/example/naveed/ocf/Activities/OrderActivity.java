@@ -123,7 +123,7 @@ Log.d("test",tokenHelper.GetToken());
     @TargetApi(Build.VERSION_CODES.M)
     private void GetPermissions(){
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
             if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.LOLLIPOP){
                 List<String> permissionsNeeded = new ArrayList<String>();
@@ -136,8 +136,11 @@ Log.d("test",tokenHelper.GetToken());
                 if (!addPermission(permissionsList, Manifest.permission.CALL_PHONE))
                     permissionsNeeded.add("Call");
 
-                if (!addPermission(permissionsList, Manifest.permission.CAMERA))
-                    permissionsNeeded.add("Camera");
+                if (!addPermission(permissionsList, Manifest.permission.READ_EXTERNAL_STORAGE))
+                    permissionsNeeded.add("Read_External_Storage");
+
+                if (!addPermission(permissionsList, Manifest.permission.WRITE_EXTERNAL_STORAGE))
+                    permissionsNeeded.add("Write_External_Storage");
 
                 if (permissionsList.size() > 0) {
                     if (permissionsNeeded.size() > 0) {
@@ -182,7 +185,8 @@ Log.d("test",tokenHelper.GetToken());
                 perms.put(Manifest.permission.ACCESS_FINE_LOCATION, PackageManager.PERMISSION_GRANTED);
                 perms.put(Manifest.permission.ACCESS_COARSE_LOCATION, PackageManager.PERMISSION_GRANTED);
                 perms.put(Manifest.permission.CALL_PHONE, PackageManager.PERMISSION_GRANTED);
-                perms.put(Manifest.permission.CAMERA, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.WRITE_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
                 // Fill with results
                 for (int i = 0; i < permissions.length; i++)
                     perms.put(permissions[i], grantResults[i]);
@@ -190,7 +194,8 @@ Log.d("test",tokenHelper.GetToken());
                 if (perms.get(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                         && perms.get(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
                         && perms.get(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED
-                        && perms.get(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+                        && perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                        && perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
 
                 ) {
                     // All Permissions Granted

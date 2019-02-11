@@ -1,11 +1,13 @@
 package com.example.naveed.ocf.Activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.NavigationView;
@@ -44,12 +46,20 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class EditProfileActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
 
 EditText edit_fullname,edit_email,edit_phone,edit_account_title,edit_account_number,edit_bank_name,edit_swift,edit_address;
 TextView txt_uploadpic;
 public ImageView img_photo;
 Button btn_update_profile;
+    public static String imgBase64;
+    public String TokenString, mediaPath;
+
+    private AsyncTask mMyTask, updateTask;
 
 public Bitmap bitmap = null;
 public String file="";
@@ -192,7 +202,11 @@ showProgress();
 
 
     public void openPhotos(){
-        startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
+        //startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
+
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, 1);
 
     }
 
@@ -201,7 +215,7 @@ showProgress();
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-
+/*
         //Detects request codes
         if(requestCode==GET_FROM_GALLERY && resultCode == RESULT_OK) {
             Uri selectedImage = data.getData();
@@ -239,6 +253,40 @@ showProgress();
                 e.printStackTrace();
             }
         }
+        */
+        try{
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+
+                case 1:
+                    Uri selectedImage = data.getData();
+                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                    String[] filePathColumn = {MediaStore.Images.Media.DATA};
+                    Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                    assert cursor != null;
+                    cursor.moveToFirst();
+
+                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                    mediaPath = cursor.getString(columnIndex);
+                    Log.d("filepath", mediaPath);
+
+
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                        img_photo.setImageBitmap(bitmap);
+                    } catch (IOException e) {
+                        Log.i("TAG", "Some exception " + e);
+                    }
+                    break;
+            }
+        }
+    }
+    catch(Exception e){
+
+
+
+    }
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -367,17 +415,28 @@ showProgress();
 
     public void UpdatUserProfile() {
 
-        UserUpdateRequest requestObj = new UserUpdateRequest();
-        requestObj.AddressOne=edit_address.getText().toString();
-        requestObj.FullName=edit_fullname.getText().toString();
-        requestObj.PhoneNumber=edit_phone.getText().toString();
 
+showProgress();
         if(bitmap != null){
-           requestObj.Image= ConvertBitmapToString(bitmap);
+          // requestObj.Image= ConvertBitmapToString(bitmap);
            // Log.d(Constants.TAG,getFileToByte(file));
             //requestObj.Image= getFileToByte(file);
+
+            updateTask = new AsyncTaskLoad().execute(mediaPath);
+
+
+        }
+        else{
+
+            setProfileOnServer();
+
         }
 
+
+
+
+
+/*
         showProgress();
 
         Gson g = new Gson();
@@ -421,9 +480,150 @@ showProgress();
 
 
         });
+*/
+    }
+
+
+    private void setProfileOnDevice(){
+        RestClient.getAuthAdapterToekn(tokenHelper.GetToken()).GetProfile().enqueue(new GeneralCallBack<GetUserResponse>(this) {
+            @Override
+            public void onSuccess(GetUserResponse response) {
+                Gson gson = new Gson();
+                String Reslog = gson.toJson(response);
+                Log.d("test", Reslog);
+
+
+
+
+                if (!response.getIserror()) {
+
+                    //  showMessageDailog(getString(R.string.app_name),Constants.MSG_SERVICE_STATUS_UPDATED);
+
+
+                    tokenHelper.SetUserName(response.getValue().getFullName());
+                    tokenHelper.SetUserEmail(response.getValue().getEmail());
+                    tokenHelper.SetUserPhoto(response.getValue().getImage());
+// OpenActivity(ServicesListActivity.class);
+                    hideProgress();
+                    OpenActivity(OrderActivity.class);
+
+
+                } else {
+
+                    //showMessageDailog(getString(R.string.app_name),response.getMessage());
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                //onFailure implementation would be in GeneralCallBack class
+
+                showMessageDailog(getString(R.string.app_name), throwable.getMessage().toString());
+                Toast.makeText(getApplicationContext(), "Failed",
+                        Toast.LENGTH_LONG).show();
+
+
+                Log.d("test", "failed");
+
+            }
+
+
+        });
+
+
+
+    }
+    private void setProfileOnServer(){
+        UserUpdateRequest requestObj = new UserUpdateRequest();
+        requestObj.AddressOne=edit_address.getText().toString();
+        requestObj.FullName=edit_fullname.getText().toString();
+        requestObj.PhoneNumber=edit_phone.getText().toString();
+
+        if(bitmap != null) {
+            requestObj.Image = imgBase64;
+        }
+        Gson g = new Gson();
+        String userJson = g.toJson(requestObj);
+        Log.d("test", userJson);
+        RestClient.getAuthAdapterToekn(tokenHelper.GetToken()).updateProfile(requestObj).enqueue(new GeneralCallBack<UserUpdateResponse>(this) {
+            @Override
+            public void onSuccess(UserUpdateResponse response) {
+                Gson gson = new Gson();
+                String Reslog = gson.toJson(response);
+                Log.d("test", Reslog);
+
+
+                hideProgress();
+
+                if (!response.getIserror()) {
+
+                    //  showMessageDailog(getString(R.string.app_name),Constants.MSG_SERVICE_STATUS_UPDATED);
+
+                    setProfileOnDevice();
+
+                } else {
+
+                    //showMessageDailog(getString(R.string.app_name),response.getMessage());
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                //onFailure implementation would be in GeneralCallBack class
+
+                showMessageDailog(getString(R.string.app_name), throwable.getMessage().toString());
+                Toast.makeText(getApplicationContext(), "Failed",
+                        Toast.LENGTH_LONG).show();
+
+                hideProgress();
+                Log.d("test", "failed");
+
+            }
+
+
+        });
+
+
+
+
 
     }
 
+
+    public class AsyncTaskLoad  extends AsyncTask<String, String, String> {
+        private final static String TAG = "AsyncTaskLoadImage";
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            String encodedImage = "";
+            if(mediaPath == null || mediaPath.equals(""))
+            {
+                encodedImage = "";
+            }else{
+                Bitmap bm = BitmapFactory.decodeFile(mediaPath);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] byteArrayImage = baos.toByteArray();
+                encodedImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
+                encodedImage = encodedImage.replace("\n","");
+            }
+            return encodedImage;
+        }
+        @Override
+        protected void onPostExecute(String base64) {
+            imgBase64 = base64;
+
+            setProfileOnServer();
+            Log.d("ss","ss");
+        }
+    }
 
 
 }

@@ -240,6 +240,7 @@ public class MyOrdersActivity extends BaseActivity implements  NavigationView.On
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
             logOut();
         }
+        
         return  true;
     }
 
