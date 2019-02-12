@@ -223,13 +223,19 @@ public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCall
 
         LatLng MyLocation = new LatLng(location.getLatitude(), location.getLongitude());
 
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude(),
-                Toast.LENGTH_SHORT);
+       // Toast toast = Toast.makeText(getApplicationContext(),
+         //       "Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude(),
+           //     Toast.LENGTH_SHORT);
 
-        toast.show();
+        //toast.show();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(MyLocation));
+        try {
+            locationManager.removeUpdates(this);
+        }
+        catch (Exception e){
 
+
+        }
 /*
        if (this.MeMarker == null) {
 
