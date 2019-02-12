@@ -151,21 +151,6 @@ public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCall
 
         LatLng custLocation = getLocationFromAddress(this, OrderDetails.CustomerAddress);
 
-        Log.d(Constants.TAG, "cusLoc" + String.valueOf(custLocation.latitude));
-        //  mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
-
-
-        MarkerOptions markerOptions = new MarkerOptions();
-
-        // Setting the position for the marker
-        markerOptions.position(custLocation);
-
-        // Setting the title for the marker.
-        // This will be displayed on taping the marker
-        markerOptions.title(OrderDetails.CustomerName);
-
-        // Clears the previously touched position
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -176,10 +161,48 @@ public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCall
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+
         mMap.setMyLocationEnabled(true);
 
-        mMap.addMarker(markerOptions).showInfoWindow();
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(custLocation,zoomLevel));
+        if(custLocation != null) {
+            Log.d(Constants.TAG, "cusLoc" + String.valueOf(custLocation.latitude));
+            //  mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
+
+
+            MarkerOptions markerOptions = new MarkerOptions();
+
+            // Setting the position for the marker
+            markerOptions.position(custLocation);
+
+            // Setting the title for the marker.
+            // This will be displayed on taping the marker
+            markerOptions.title(OrderDetails.CustomerName);
+
+            // Clears the previously touched position
+
+
+            mMap.addMarker(markerOptions).showInfoWindow();
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(custLocation, zoomLevel));
+        }
+        else{
+
+            MarkerOptions markerOptions = new MarkerOptions();
+
+            // Setting the position for the marker
+            markerOptions.position(HAMBURG);
+
+            // Setting the title for the marker.
+            // This will be displayed on taping the marker
+            markerOptions.title(OrderDetails.CustomerName);
+
+            mMap.addMarker(markerOptions).showInfoWindow();
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, zoomLevel));
+
+        }
+
+
+
 
     }
 
@@ -188,7 +211,7 @@ public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCall
         super.onStop();
 
 
-        locationManager.removeUpdates(locationListener);
+        locationManager.removeUpdates(this);
 
     }
 
@@ -374,7 +397,7 @@ btn_active.setVisibility(View.GONE);
             Address location = address.get(0);
             p1 = new LatLng(location.getLatitude(), location.getLongitude() );
 
-        } catch (IOException ex) {
+        } catch (Exception ex) {
 
             ex.printStackTrace();
         }
