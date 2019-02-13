@@ -41,6 +41,13 @@
                     android:layout_height="wrap_content"
                     android:text="19/05/2017"
                     android:textColor="@color/lightGrey" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Job Time"
+                    android:textSize="12sp" />
             </LinearLayout>
 
         </LinearLayout>
