@@ -9,109 +9,112 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="240dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="20dp"
-            android:adjustViewBounds="false"
-            android:contentDescription="OCF_Logo"
-            android:cropToPadding="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.13999999"
-            app:srcCompat="@drawable/ocf_logo" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="243dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:freezesText="false"
-            android:gravity="center"
-            android:letterSpacing="0.3"
-            android:singleLine="true"
-            android:text="CARE ASSOCIATE LOGIN"
-            android:textColor="#000"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/txtEmail"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:drawableLeft="@drawable/email_icon"
-            android:drawablePadding="15dp"
-            android:hint="Email Address"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="15dp"
-            android:paddingBottom="20dp"
-            android:textColor="#758089"
-            android:textSize="14sp" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:drawableLeft="@drawable/lock_icon"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:paddingBottom="20dp"
-            android:textColor="#758089"
-            android:textSize="14sp" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="false"
+                android:contentDescription="OCF_Logo"
+                android:cropToPadding="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.13999999"
+                app:srcCompat="@drawable/ocf_logo" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="30dp"
-            android:gravity="right"
-            android:text="Forgot password?"
-            android:textColor="#A0A4A5" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="19dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp"
+                android:freezesText="false"
+                android:gravity="center"
+                android:letterSpacing="0.3"
+                android:singleLine="true"
+                android:text="CARE ASSOCIATE LOGIN"
+                android:textColor="#000"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btn_signin"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@drawable/round_corner"
-            android:text="Login"
-            android:textColor="@drawable/txt_round_corner" />
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:drawableLeft="@drawable/email_icon"
+                android:drawablePadding="15dp"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="20dp"
+                android:paddingLeft="15dp"
+                android:textColor="#758089"
+                android:textSize="14sp" />
 
-        <Button
-            android:id="@+id/btn_signup"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="40dp"
-            android:background="@drawable/border_primary_color"
-            android:text="SIgn up"
-            android:textColor="@drawable/btn_txt_primary_color" />
+            <EditText
+                android:id="@+id/txtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:drawableLeft="@drawable/lock_icon"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingBottom="20dp"
+                android:paddingLeft="15dp"
+                android:textColor="#758089"
+                android:textSize="14sp" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_signin"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/round_corner"
+                android:text="Login"
+                android:textColor="@drawable/txt_round_corner" />
+
+            <Button
+                android:id="@+id/btn_signup"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_primary_color"
+                android:text="SIgn up"
+                android:textColor="@drawable/btn_txt_primary_color" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text="Forgot password?"
+                android:textColor="#A0A4A5" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
