@@ -23,6 +23,8 @@ public class CalcelActivity extends BaseActivity implements  View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialouge_cancel_order);
 
+
+
         txt_reason= (EditText) findViewById(R.id.txt_reason);
         btn_dismiss= (Button) findViewById(R.id.btn_dismiss);
         btn_ok= (Button) findViewById(R.id.btn_ok);

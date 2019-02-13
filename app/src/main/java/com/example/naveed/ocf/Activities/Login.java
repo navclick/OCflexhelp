@@ -1,5 +1,7 @@
 package com.example.naveed.ocf.Activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -59,11 +61,21 @@ public class Login extends BaseActivity implements View.OnClickListener{
             case R.id.btn_signin:
                 if(isValidate()){
                     SignIn();
+                   // startNav();
                 }else{
                     break;
                 }
                 break;
         }
+    }
+
+
+    private void startNav(){
+String name="asad";
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("geo:0,0?q=37.423156,-122.084917 (" + name + ")"));
+        startActivity(intent);
+
     }
 
     private boolean isValidate(){

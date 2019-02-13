@@ -15,6 +15,14 @@
 
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:textColor">@color/colordailog</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+
+    <style name="NoTitleDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowNoTitle">true</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">

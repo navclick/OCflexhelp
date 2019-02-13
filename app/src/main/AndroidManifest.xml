@@ -83,7 +83,8 @@
 
         <activity android:name=".Activities.CalcelActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Dialog.Alert"
+            android:configChanges="orientation"
+            android:theme="@style/NoTitleDialog"
             />
 
 
@@ -96,7 +97,8 @@
 
         <activity android:name=".Activities.RateCustomerActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Dialog.Alert"
+            android:configChanges="orientation"
+            android:theme="@style/NoTitleDialog"
             />
 
     </application>
