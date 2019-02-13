@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.naveed.ocf.Activities.Login;
+import com.example.naveed.ocf.Activities.OrderActivity;
 import com.example.naveed.ocf.Helper.Constants;
 import com.example.naveed.ocf.Helper.ProgressLoader;
 import com.example.naveed.ocf.Helper.TokenHelper;
@@ -88,6 +89,8 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+    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
+
 
     public void UpdateOrderStatus(int orderID, int StatusID, String Reason) {
 
@@ -113,6 +116,12 @@ public class BaseActivity extends AppCompatActivity {
                 if (!response.getIserror()) {
 
                     //  showMessageDailog(getString(R.string.app_name),Constants.MSG_SERVICE_STATUS_UPDATED);
+
+                    if(StatusID==Constants.ORDER_ACTIVE){
+
+                        showMessageDailogNextScreen(getString(R.string.app_name),Constants.MSG_ORDER_ACTIVED,OrderActivity.class);
+
+                    }
 
                 } else {
 
@@ -189,6 +198,35 @@ public class BaseActivity extends AppCompatActivity {
 return  profile[0];
     }
 
+
+
+    public void showMessageDailogNextScreen(String title, String message, final Class activityI) {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this, R.style.MyDialogTheme);
+        builder1.setMessage(message);
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        OpenActivity(activityI);
+                    }
+                });
+
+       /* builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });*/
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+
+
+
+    }
 
     public void showMessageDailog(String title, String message) {
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this, R.style.MyDialogTheme);

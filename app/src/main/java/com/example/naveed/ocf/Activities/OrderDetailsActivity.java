@@ -362,7 +362,7 @@ btn_active.setVisibility(View.GONE);
 
                 OrderDetails.OrderStatus=Constants.ORDER_ACTIVE;
                 UpdateOrderStatus(OrderDetails.OrderNumber,OrderDetails.OrderStatus,"N/A");
-                BaseActivity.startActivity(this, OrderActivity.class);
+
 
                 break;
 
