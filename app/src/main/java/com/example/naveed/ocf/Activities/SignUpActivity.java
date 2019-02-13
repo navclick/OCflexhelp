@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.naveed.ocf.Base.BaseActivity;
+import com.example.naveed.ocf.Helper.Constants;
 import com.example.naveed.ocf.Helper.GeneralHelper;
 import com.example.naveed.ocf.Models.GeneralResponse;
 import com.example.naveed.ocf.Models.SignUpRequest;
@@ -122,7 +123,10 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
                     }else{
                         boolean iserror = objBody.getIserror();
                         if(!iserror){
-                            OpenActivity(Login.class);
+                            showMessageDailogNextScreen(getString(R.string.app_name), Constants.MSG_VERRIFY_EMAIL,Login.class);
+
+
+
                         }else{
                             String errormessage = objBody.getMessage();
                             Toast.makeText(SignUpActivity.this, errormessage, Toast.LENGTH_SHORT).show();

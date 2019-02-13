@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.naveed.ocf.Base.BaseActivity;
@@ -22,7 +23,8 @@ import com.squareup.picasso.Picasso;
 
 public class OrderHistoryDetailsActivity extends BaseActivity implements  View.OnClickListener, NavigationView.OnNavigationItemSelectedListener  {
 
-    public TextView txt_order_number,txt_service_date,txt_service_time,txt_service_name,txt_service_hrs,txt_amount;
+    public TextView txt_order_number,txt_service_date,txt_service_time,txt_service_name,txt_service_hrs,txt_amount,txt_msg;
+    public RatingBar ratingBar2;
     public Button btn_order_history;
 
     @Override
@@ -64,6 +66,10 @@ public class OrderHistoryDetailsActivity extends BaseActivity implements  View.O
         txt_service_name=(TextView) findViewById(R.id.txt_service_name);
         txt_service_hrs=(TextView) findViewById(R.id.txt_service_hrs);
         txt_amount=(TextView) findViewById(R.id.txt_amount);
+        txt_msg=(TextView) findViewById(R.id.txt_msg);
+        ratingBar2=(RatingBar) findViewById(R.id.ratingBar2);
+
+
         btn_order_history=(Button) findViewById(R.id.btn_order_history);
 
 
@@ -73,6 +79,9 @@ public class OrderHistoryDetailsActivity extends BaseActivity implements  View.O
         txt_service_time.setText(OrderDetails.ServiceDate);;
         txt_service_name.setText(OrderDetails.ServiceName);;
         txt_service_hrs.setText("2");;
+
+        txt_msg.setText(OrderDetails.Message);
+        ratingBar2.setRating(Float.parseFloat(OrderDetails.Rating));
         txt_amount.setText(OrderDetails.Price);;
 
         btn_order_history.setOnClickListener(this);

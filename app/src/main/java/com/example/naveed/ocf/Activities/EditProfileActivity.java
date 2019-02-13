@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.example.naveed.ocf.Base.BaseActivity;
 import com.example.naveed.ocf.Base.GeneralCallBack;
 import com.example.naveed.ocf.Helper.Constants;
+import com.example.naveed.ocf.Helper.GeneralHelper;
 import com.example.naveed.ocf.Models.GetUserResponse;
 import com.example.naveed.ocf.Models.OrderDetails;
 import com.example.naveed.ocf.Models.StatusUpdateRequest;
@@ -36,6 +37,7 @@ import com.example.naveed.ocf.Models.UserUpdateRequest;
 import com.example.naveed.ocf.Models.UserUpdateResponse;
 import com.example.naveed.ocf.Network.RestClient;
 import com.example.naveed.ocf.R;
+import com.example.naveed.ocf.Utility.ValidationUtility;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
@@ -140,7 +142,7 @@ showProgress();
                     edit_email.setText(response.getValue().getEmail());
                     edit_phone.setText(response.getValue().getPhoneNumber());
                     edit_account_title.setText(response.getValue().getAccountTitle());
-                    edit_account_number.setText(response.getValue().getAccountName());
+                    edit_account_number.setText(response.getValue().getAccountNumber());
                     edit_bank_name.setText(response.getValue().getBankName());
                     edit_swift.setText(response.getValue().getSwift());
                     edit_address.setText(response.getValue().getAddressOne());
@@ -412,9 +414,24 @@ showProgress();
         return encodeString;
     }
 
+    private boolean isValidate(){
+
+
+        if(!ValidationUtility.EditTextValidator(edit_fullname, edit_phone, edit_address, edit_bank_name,edit_account_title,edit_account_number)){
+            GeneralHelper.ShowToast(this, "Require field can not be empty!");
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 
     public void UpdatUserProfile() {
+if(!isValidate()){
 
+    return;
+
+}
 
 showProgress();
         if(bitmap != null){
@@ -536,14 +553,27 @@ showProgress();
 
 
     }
+
+
+
     private void setProfileOnServer(){
+
+
+
         UserUpdateRequest requestObj = new UserUpdateRequest();
-        requestObj.AddressOne=edit_address.getText().toString();
-        requestObj.FullName=edit_fullname.getText().toString();
-        requestObj.PhoneNumber=edit_phone.getText().toString();
+        requestObj.setFullName(edit_fullname.getText().toString());
+        requestObj.setAddressOne(edit_address.getText().toString());
+        requestObj.setPhoneNumber(edit_phone.getText().toString());
+        requestObj.setAccountNumber(edit_account_number.getText().toString());
+
+        requestObj.setAccountTitle(edit_account_title.getText().toString());
+        requestObj.setBankName(edit_bank_name.getText().toString());
+        requestObj.setSwift(edit_swift.getText().toString());
+
+
 
         if(bitmap != null) {
-            requestObj.Image = imgBase64;
+            requestObj.setImage(imgBase64);
         }
         Gson g = new Gson();
         String userJson = g.toJson(requestObj);
@@ -625,5 +655,11 @@ showProgress();
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        OpenActivity(OrderActivity.class);
+        finish();
+        //System.exit(0);
+    }
 
 }

@@ -180,4 +180,10 @@ public class Login extends BaseActivity implements View.OnClickListener{
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        System.exit(0);
+    }
 }

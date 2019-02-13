@@ -89,8 +89,6 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
-    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
-
 
     public void UpdateOrderStatus(int orderID, int StatusID, String Reason) {
 

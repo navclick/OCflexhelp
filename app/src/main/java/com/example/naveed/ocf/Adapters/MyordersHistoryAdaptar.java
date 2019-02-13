@@ -95,6 +95,8 @@ public class MyordersHistoryAdaptar extends RecyclerView.Adapter<MyordersHistory
                 OrderDetails.ServiceDate = formattedDate;
                 OrderDetails.ServiceTime = formattedTime + " - " + formattedTime;
                 OrderDetails.ServiceName = Order.getServiceName();
+                OrderDetails.Message=Order.getAssociateRatingMessage().toString();
+                OrderDetails.Rating=Order.getRatingByAssociate().toString();
                 BaseActivity.startActivity(view.getContext(), OrderHistoryDetailsActivity.class);
             }
             catch (Exception e){

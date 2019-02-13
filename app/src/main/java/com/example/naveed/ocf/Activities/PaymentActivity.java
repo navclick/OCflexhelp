@@ -135,5 +135,10 @@ public class PaymentActivity extends BaseActivity implements   NavigationView.On
        */
         return super.onCreateOptionsMenu(menu);
     }
-
+    @Override
+    public void onBackPressed() {
+        OpenActivity(OrderActivity.class);
+        finish();
+        //System.exit(0);
+    }
 }

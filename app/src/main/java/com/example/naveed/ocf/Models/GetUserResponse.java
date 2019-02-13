@@ -118,9 +118,9 @@ public class GetUserResponse {
         @SerializedName("accountTitle")
         @Expose
         private String accountTitle;
-        @SerializedName("accountName")
+        @SerializedName("accountNumber")
         @Expose
-        private String accountName;
+        private String accountNumber;
         @SerializedName("bankName")
         @Expose
         private String bankName;
@@ -275,12 +275,12 @@ public class GetUserResponse {
             this.accountTitle = accountTitle;
         }
 
-        public String getAccountName() {
-            return accountName;
+        public String getAccountNumber() {
+            return accountNumber;
         }
 
-        public void setAccountName(String accountName) {
-            this.accountName = accountName;
+        public void setAccountNumber(String accountNumber) {
+            this.accountNumber = accountNumber;
         }
 
         public String getBankName() {

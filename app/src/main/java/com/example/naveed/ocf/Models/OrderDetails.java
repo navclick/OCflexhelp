@@ -10,6 +10,8 @@ public class OrderDetails {
     public static String CustomerAddress;
     public static String CustomerName;
     public static String CustomerPhone;
+    public static String Message;
+    public static String Rating;
     public static int OrderStatus;
 
 
