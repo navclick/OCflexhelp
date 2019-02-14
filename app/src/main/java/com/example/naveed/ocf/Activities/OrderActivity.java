@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -26,6 +27,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.naveed.ocf.Adapters.ServiceOrderAdapter;
+import com.example.naveed.ocf.BackGroundServices.LocationService;
 import com.example.naveed.ocf.Base.GeneralCallBack;
 import com.example.naveed.ocf.Helper.Constants;
 import com.example.naveed.ocf.Models.OrdersResponse;
@@ -117,6 +119,9 @@ Log.d("test",tokenHelper.GetToken());
 
         GetPermissions();
         GetOrders();
+
+        startService(new Intent(OrderActivity.this, LocationService.class));
+
 
     }
 

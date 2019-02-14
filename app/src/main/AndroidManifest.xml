@@ -101,6 +101,7 @@
             android:theme="@style/NoTitleDialog"
             />
 
+        <service android:name=".BackGroundServices.LocationService" />
     </application>
 
 </manifest>

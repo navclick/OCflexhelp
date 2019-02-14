@@ -1,5 +1,7 @@
 package com.example.naveed.ocf.Network;
 
+import com.example.naveed.ocf.Models.AddLocationRequest;
+import com.example.naveed.ocf.Models.AddLocationResponse;
 import com.example.naveed.ocf.Models.CustomerService;
 import com.example.naveed.ocf.Models.GeneralResponse;
 import com.example.naveed.ocf.Models.GetUserResponse;
@@ -56,6 +58,10 @@ public interface IApiCaller {
 
     @POST(EndPoints.POST_RATING)
     Call<RatingResponse> rateCustomer(@Body RatingRequest Rating);
+
+
+    @POST(EndPoints.POST_LOCATION)
+    Call<AddLocationResponse> AddLocation(@Body AddLocationRequest Location);
 
 
     // Customer Service ends

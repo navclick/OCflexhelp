@@ -15,6 +15,10 @@ public class EndPoints {
 
     static final  String POST_RATING=API_PREFIX+"order/updateratingbyassociate";
 
+    static final  String POST_LOCATION=API_PREFIX+"tracking/addtracking";
+
+
+
 
 
 
