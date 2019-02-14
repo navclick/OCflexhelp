@@ -2,6 +2,7 @@ package com.example.naveed.ocf.Activities;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -10,6 +11,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -50,7 +52,7 @@ import java.util.List;
 public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, LocationListener {
 
     public TextView txt_order_status, txt_order_number, txt_order_Price, txt_order_service_name, txt_order_date, txt_order_time, txt_order_customer_address;
-    public Button btn_active, btn_complete, btn_cancel;
+    public Button btn_active, btn_complete, btn_cancel,btn_nav;
 
     static final LatLng HAMBURG = new LatLng(53.558, 9.927);
     static final LatLng KIEL = new LatLng(53.551, 9.993);
@@ -59,6 +61,7 @@ public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCall
     protected LocationListener locationListener;
     protected Context context;
     float zoomLevel = (float) 15.0;
+    public  LatLng custLocation;
 
     public Marker MeMarker = null;
 
@@ -118,11 +121,15 @@ public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCall
         btn_active = (Button) findViewById(R.id.btn_active);
         btn_complete = (Button) findViewById(R.id.btn_complete);
         btn_cancel = (Button) findViewById(R.id.btn_cancel);
+        btn_nav = (Button) findViewById(R.id.btn_nav);
+
+
 
         setButton(OrderDetails.OrderStatus);
         btn_active.setOnClickListener(this);
         btn_complete.setOnClickListener(this);
         btn_cancel.setOnClickListener(this);
+        btn_nav.setOnClickListener(this);
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -149,7 +156,7 @@ public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCall
 
         // Add a marker in Sydney and move the camera
 
-        LatLng custLocation = getLocationFromAddress(this, OrderDetails.CustomerAddress);
+         custLocation = getLocationFromAddress(this, OrderDetails.CustomerAddress);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -186,7 +193,7 @@ public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCall
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(custLocation, zoomLevel));
         }
         else{
-
+            custLocation=HAMBURG;
             MarkerOptions markerOptions = new MarkerOptions();
 
             // Setting the position for the marker
@@ -205,7 +212,19 @@ public class OrderDetailsActivity extends BaseActivity implements OnMapReadyCall
 
 
     }
+    private void startNav(String name,String Lat,String Long){
 
+/*        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("geo:0,0?q=37.423156,-122.084917 (" + name + ")"));
+        startActivity(intent);
+*/
+
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("geo:0,0?q="+Lat+","+Long+" (" + name + ")"));
+        startActivity(intent);
+
+
+    }
     @Override
     public void onStop(){
         super.onStop();
@@ -381,6 +400,17 @@ btn_active.setVisibility(View.GONE);
                 BaseActivity.startActivity(this, CalcelActivity.class);
 
                 break;
+
+            case R.id.btn_nav:
+
+
+
+                startNav(OrderDetails.CustomerName,String.valueOf(custLocation.latitude),String.valueOf(custLocation.longitude));
+
+                break;
+
+
+
 
         }
 
